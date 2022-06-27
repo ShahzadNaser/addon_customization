@@ -1,0 +1,119 @@
+{
+ "creation": "2020-09-22 10:39:53.848589",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "email_to_customer",
+  "posting_date",
+  "column_break_3",
+  "customer",
+  "customer_name",
+  "customer_email",
+  "email_subject",
+  "email_body",
+  "section_break_6",
+  "from_date_gl",
+  "to_date_gl",
+  "email_for_customer_child_data_list",
+  "amended_from"
+ ],
+ "fields": [
+  {
+   "fieldname": "email_to_customer",
+   "fieldtype": "Data",
+   "label": "Email to Customer"
+  },
+  {
+   "default": "Today",
+   "fieldname": "posting_date",
+   "fieldtype": "Date",
+   "label": "Posting Date"
+  },
+  {
+   "fieldname": "column_break_3",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "customer",
+   "fieldtype": "Link",
+   "label": "Customer",
+   "options": "Customer"
+  },
+  {
+   "fieldname": "customer_email",
+   "fieldtype": "Data",
+   "label": "Customer Email",
+   "options": "Email"
+  },
+  {
+   "fieldname": "section_break_6",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "from_date_gl",
+   "fieldtype": "Date",
+   "label": "From Date GL"
+  },
+  {
+   "fieldname": "to_date_gl",
+   "fieldtype": "Date",
+   "label": "To Date GL"
+  },
+  {
+   "fieldname": "email_for_customer_child_data_list",
+   "fieldtype": "Table",
+   "hidden": 1,
+   "options": "Email for Customer Child Data List",
+   "read_only": 1
+  },
+  {
+   "fieldname": "customer_name",
+   "fieldtype": "Data",
+   "label": "Customer Name"
+  },
+  {
+   "fieldname": "amended_from",
+   "fieldtype": "Link",
+   "label": "Amended From",
+   "no_copy": 1,
+   "options": "Hidden Document Email to Customer",
+   "print_hide": 1,
+   "read_only": 1
+  },
+  {
+   "fieldname": "email_body",
+   "fieldtype": "Text",
+   "label": "Email Body"
+  },
+  {
+   "fieldname": "email_subject",
+   "fieldtype": "Data",
+   "label": "Email Subject"
+  }
+ ],
+ "is_submittable": 1,
+ "modified": "2020-09-22 15:58:21.070694",
+ "modified_by": "Administrator",
+ "module": "Addon Customization",
+ "name": "Hidden Document Email to Customer",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "read_only": 1,
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "track_changes": 1
+}

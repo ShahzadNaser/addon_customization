@@ -1,0 +1,81 @@
+{
+ "creation": "2021-05-05 06:07:42.659584",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "sb_info",
+  "employee",
+  "employee_name",
+  "sb_rating",
+  "personal_rating",
+  "sb_receiver",
+  "receiver",
+  "receiver_name"
+ ],
+ "fields": [
+  {
+   "fieldname": "sb_info",
+   "fieldtype": "Section Break",
+   "label": "Personal Info"
+  },
+  {
+   "fieldname": "employee",
+   "fieldtype": "Data",
+   "label": "Employee ID"
+  },
+  {
+   "fieldname": "employee_name",
+   "fieldtype": "Data",
+   "label": "Employee Name"
+  },
+  {
+   "fieldname": "sb_rating",
+   "fieldtype": "Section Break",
+   "label": "Personal Rating"
+  },
+  {
+   "fieldname": "personal_rating",
+   "fieldtype": "Table",
+   "label": "Rating",
+   "options": "EAC Personal Rating"
+  },
+  {
+   "fieldname": "sb_receiver",
+   "fieldtype": "Section Break",
+   "label": "Receiver Info"
+  },
+  {
+   "fieldname": "receiver",
+   "fieldtype": "Data",
+   "label": "Receiver"
+  },
+  {
+   "fieldname": "receiver_name",
+   "fieldtype": "Data",
+   "label": "Receiver Name"
+  }
+ ],
+ "modified": "2022-06-22 10:49:05.437124",
+ "modified_by": "Administrator",
+ "module": "Addon Customization",
+ "name": "EAC Webform",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "track_changes": 1
+}

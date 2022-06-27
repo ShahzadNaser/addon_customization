@@ -1,0 +1,51 @@
+{
+ "creation": "2021-05-05 06:03:01.032055",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "recipient_email",
+  "subject_email",
+  "body_email"
+ ],
+ "fields": [
+  {
+   "fieldname": "recipient_email",
+   "fieldtype": "Data",
+   "label": "Recipient Email",
+   "options": "email"
+  },
+  {
+   "fieldname": "subject_email",
+   "fieldtype": "Data",
+   "label": "Subject Email"
+  },
+  {
+   "fieldname": "body_email",
+   "fieldtype": "Text",
+   "label": "Body Email"
+  }
+ ],
+ "modified": "2021-05-05 06:03:01.032055",
+ "modified_by": "Administrator",
+ "module": "Addon Customization",
+ "name": "EAC Email Sender",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "track_changes": 1
+}

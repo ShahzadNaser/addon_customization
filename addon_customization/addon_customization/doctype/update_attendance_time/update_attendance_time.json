@@ -1,0 +1,190 @@
+{
+ "allow_import": 1,
+ "autoname": "EMP-UATT-.MM.-.YYYY.-.######",
+ "creation": "2020-07-23 08:35:18.652537",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "employee_list",
+  "get_all_employee",
+  "employee",
+  "employee_name",
+  "log_type",
+  "column_break_4",
+  "attendance_date",
+  "start_time",
+  "exit_time",
+  "amended_from"
+ ],
+ "fields": [
+  {
+   "fieldname": "employee",
+   "fieldtype": "Link",
+   "hidden": 1,
+   "label": "Employee",
+   "options": "Employee"
+  },
+  {
+   "fetch_from": "employee.employee_name",
+   "fieldname": "employee_name",
+   "fieldtype": "Data",
+   "hidden": 1,
+   "in_list_view": 1,
+   "label": "Employee Name",
+   "read_only": 1
+  },
+  {
+   "fieldname": "log_type",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "label": "Log Type",
+   "options": "\nStart Time\nExit Time",
+   "reqd": 1
+  },
+  {
+   "fieldname": "column_break_4",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "attendance_date",
+   "fieldtype": "Date",
+   "label": "Attendance Date",
+   "reqd": 1
+  },
+  {
+   "default": "00:00:00",
+   "depends_on": "eval:doc.log_type==\"Start Time\"||doc.log_type==\"Both Time\"",
+   "fieldname": "start_time",
+   "fieldtype": "Time",
+   "label": "Start Time"
+  },
+  {
+   "default": "00:00:00",
+   "depends_on": "eval:doc.log_type==\"Exit Time\"||doc.log_type==\"Both Time\"",
+   "fieldname": "exit_time",
+   "fieldtype": "Time",
+   "label": "Exit Time"
+  },
+  {
+   "fieldname": "amended_from",
+   "fieldtype": "Link",
+   "label": "Amended From",
+   "no_copy": 1,
+   "options": "Update Attendance Time",
+   "print_hide": 1,
+   "read_only": 1
+  },
+  {
+   "fieldname": "employee_list",
+   "fieldtype": "Table",
+   "label": "Employee List",
+   "options": "Update Attendance Time Employee",
+   "reqd": 1
+  },
+  {
+   "fieldname": "get_all_employee",
+   "fieldtype": "Button",
+   "label": "Get All Employee",
+   "options": "get_all_employee"
+  }
+ ],
+ "is_submittable": 1,
+ "modified": "2020-07-30 04:34:21.377794",
+ "modified_by": "Administrator",
+ "module": "Addon Customization",
+ "name": "Update Attendance Time",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "import": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  },
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "import": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "HR Manager",
+   "share": 1,
+   "write": 1
+  },
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "import": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "HR User",
+   "share": 1,
+   "write": 1
+  },
+  {
+   "create": 1,
+   "delete": 1,
+   "read": 1,
+   "role": "Employee",
+   "write": 1
+  },
+  {
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "permlevel": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  },
+  {
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "permlevel": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "HR Manager",
+   "share": 1,
+   "write": 1
+  },
+  {
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "permlevel": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "HR User",
+   "share": 1,
+   "write": 1
+  },
+  {
+   "permlevel": 1,
+   "read": 1,
+   "role": "Employee"
+  }
+ ],
+ "sort_field": "modified",
+ "sort_order": "ASC",
+ "title_field": "employee_name",
+ "track_changes": 1
+}

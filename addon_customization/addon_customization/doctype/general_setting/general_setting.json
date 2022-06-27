@@ -1,0 +1,231 @@
+{
+ "creation": "2020-06-13 10:33:58.972180",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "activate_replace_gle_section",
+  "replace_gle_sales_invoice",
+  "replace_gle_delivery_note",
+  "replace_gle_stock_entry",
+  "replace_gle_stock_reconciliation",
+  "replace_gle_purchase_receipt",
+  "replace_gle_purchase_invoice",
+  "column_break_7",
+  "cost_center",
+  "sb_ste",
+  "role_stock_manager",
+  "setting_role_stock_entry",
+  "sb_sinv",
+  "setting_role_sales_invoice",
+  "sb_customer",
+  "customer_child",
+  "sb_item",
+  "setting_item",
+  "column_break_19",
+  "setting_role",
+  "sb_customer_sub_customer",
+  "setting_customer_and_sub_customer",
+  "sb_hidden_rate",
+  "setting_hidden_rate",
+  "sb_validation",
+  "val_transformation",
+  "val_block_production",
+  "val_production_form",
+  "anniversary_email_section",
+  "role_user"
+ ],
+ "fields": [
+  {
+   "fieldname": "sb_ste",
+   "fieldtype": "Section Break",
+   "label": "ALLOW TO SUBMIT STE RECEIVE AT WAREHOUSE"
+  },
+  {
+   "fieldname": "role_stock_manager",
+   "fieldtype": "Link",
+   "hidden": 1,
+   "label": "Role Stock Manager",
+   "options": "Role"
+  },
+  {
+   "fieldname": "setting_role_stock_entry",
+   "fieldtype": "Table",
+   "label": "Setting Role Stock Entry",
+   "options": "Setting Child Role Stock"
+  },
+  {
+   "fieldname": "sb_sinv",
+   "fieldtype": "Section Break",
+   "label": "UPDATE STOCK FOR SALES INVOICE"
+  },
+  {
+   "fieldname": "setting_role_sales_invoice",
+   "fieldtype": "Table",
+   "label": "Setting Role Sales Invoice",
+   "options": "Setting Child Role Sales Invoice"
+  },
+  {
+   "fieldname": "activate_replace_gle_section",
+   "fieldtype": "Section Break",
+   "label": "ACTIVATE REPLACE GLE"
+  },
+  {
+   "fieldname": "replace_gle_sales_invoice",
+   "fieldtype": "Select",
+   "label": "Sales Invoice",
+   "options": "No\nYes"
+  },
+  {
+   "fieldname": "replace_gle_delivery_note",
+   "fieldtype": "Select",
+   "label": "Delivery Note",
+   "options": "No\nYes"
+  },
+  {
+   "fieldname": "replace_gle_stock_entry",
+   "fieldtype": "Select",
+   "label": "Stock Entry",
+   "options": "No\nYes"
+  },
+  {
+   "fieldname": "replace_gle_stock_reconciliation",
+   "fieldtype": "Select",
+   "label": "Stock Reconciliation",
+   "options": "No\nYes"
+  },
+  {
+   "fieldname": "column_break_7",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "cost_center",
+   "fieldtype": "Link",
+   "label": "Cost Center",
+   "options": "Cost Center"
+  },
+  {
+   "fieldname": "replace_gle_purchase_receipt",
+   "fieldtype": "Select",
+   "label": "Purchase Receipt",
+   "options": "No\nYes"
+  },
+  {
+   "fieldname": "replace_gle_purchase_invoice",
+   "fieldtype": "Select",
+   "label": "Purchase Invoice",
+   "options": "No\nYes"
+  },
+  {
+   "fieldname": "sb_customer",
+   "fieldtype": "Section Break",
+   "label": "CUSTOMER ALLOW EDIT CUSTOMER NAME"
+  },
+  {
+   "fieldname": "customer_child",
+   "fieldtype": "Table",
+   "label": "Customer",
+   "options": "Customer Child"
+  },
+  {
+   "fieldname": "sb_item",
+   "fieldtype": "Section Break",
+   "label": "ITEM ALLOW TO CHANGE PRICE"
+  },
+  {
+   "fieldname": "setting_item",
+   "fieldtype": "Table",
+   "label": "Setting Item",
+   "options": "General Setting Child Item"
+  },
+  {
+   "fieldname": "column_break_19",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "setting_role",
+   "fieldtype": "Table",
+   "label": "Setting Role",
+   "options": "General Setting Child Allow Role"
+  },
+  {
+   "fieldname": "sb_customer_sub_customer",
+   "fieldtype": "Section Break",
+   "label": "CUSTOMER AND SUB CUSTOMER"
+  },
+  {
+   "fieldname": "setting_customer_and_sub_customer",
+   "fieldtype": "Table",
+   "label": "Setting Customer and Sub Customer",
+   "options": "General Setting Sub Customer"
+  },
+  {
+   "fieldname": "sb_hidden_rate",
+   "fieldtype": "Section Break",
+   "label": "HIDDEN RATE"
+  },
+  {
+   "fieldname": "setting_hidden_rate",
+   "fieldtype": "Table",
+   "label": "Setting Hidden Rate",
+   "options": "General Setting Hidden Rate"
+  },
+  {
+   "description": "Check this to bypass the validation",
+   "fieldname": "sb_validation",
+   "fieldtype": "Section Break",
+   "label": "VALIDATION RATE"
+  },
+  {
+   "default": "0",
+   "fieldname": "val_transformation",
+   "fieldtype": "Check",
+   "label": "Val Transformation"
+  },
+  {
+   "default": "0",
+   "fieldname": "val_block_production",
+   "fieldtype": "Check",
+   "label": "Val Block Production"
+  },
+  {
+   "default": "0",
+   "fieldname": "val_production_form",
+   "fieldtype": "Check",
+   "label": "Val Production Form"
+  },
+  {
+   "fieldname": "anniversary_email_section",
+   "fieldtype": "Section Break",
+   "label": "ANNIVERSARY EMAIL"
+  },
+  {
+   "fieldname": "role_user",
+   "fieldtype": "Table",
+   "label": "Role User",
+   "options": "Role Email Anniversary"
+  }
+ ],
+ "issingle": 1,
+ "modified": "2021-03-14 03:03:58.518739",
+ "modified_by": "Administrator",
+ "module": "Addon Customization",
+ "name": "General Setting",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "print": 1,
+   "read": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "quick_entry": 1,
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "track_changes": 1
+}

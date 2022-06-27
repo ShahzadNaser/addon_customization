@@ -1,0 +1,58 @@
+{
+ "creation": "2020-07-29 07:02:22.980651",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "employee",
+  "employee_name",
+  "amount_child",
+  "no_of_days_child"
+ ],
+ "fields": [
+  {
+   "fieldname": "employee",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Employee",
+   "options": "Employee",
+   "reqd": 1
+  },
+  {
+   "fetch_from": "employee.employee_name",
+   "fieldname": "employee_name",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Employee Name",
+   "read_only": 1,
+   "reqd": 1
+  },
+  {
+   "default": "0",
+   "depends_on": "eval:parent.type_extra_salary==\"Other Component\"",
+   "fieldname": "amount_child",
+   "fieldtype": "Currency",
+   "in_list_view": 1,
+   "label": "Amount"
+  },
+  {
+   "default": "0",
+   "depends_on": "eval:parent.type_extra_salary==\"OT and Penalty\"",
+   "fieldname": "no_of_days_child",
+   "fieldtype": "Float",
+   "in_list_view": 1,
+   "label": "No of Days"
+  }
+ ],
+ "istable": 1,
+ "modified": "2020-07-29 17:29:07.340155",
+ "modified_by": "Administrator",
+ "module": "Addon Customization",
+ "name": "Extra Salary Employee",
+ "owner": "Administrator",
+ "permissions": [],
+ "quick_entry": 1,
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "track_changes": 1
+}

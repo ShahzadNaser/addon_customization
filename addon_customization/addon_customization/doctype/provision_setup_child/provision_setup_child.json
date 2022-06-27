@@ -1,0 +1,38 @@
+{
+ "creation": "2020-07-06 19:54:53.029287",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "customer_group",
+  "provision_percentage"
+ ],
+ "fields": [
+  {
+   "fieldname": "customer_group",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Customer Group",
+   "options": "Customer Group",
+   "reqd": 1
+  },
+  {
+   "fieldname": "provision_percentage",
+   "fieldtype": "Float",
+   "in_list_view": 1,
+   "label": "Provision Percentage (%)",
+   "reqd": 1
+  }
+ ],
+ "istable": 1,
+ "modified": "2020-07-06 20:07:43.025680",
+ "modified_by": "Administrator",
+ "module": "Addon Customization",
+ "name": "Provision Setup Child",
+ "owner": "Administrator",
+ "permissions": [],
+ "quick_entry": 1,
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "track_changes": 1
+}

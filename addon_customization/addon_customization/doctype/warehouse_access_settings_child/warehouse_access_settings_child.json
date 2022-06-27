@@ -1,0 +1,63 @@
+{
+ "creation": "2020-08-07 03:13:53.865979",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "user",
+  "document",
+  "type",
+  "source_wh",
+  "target_wh"
+ ],
+ "fields": [
+  {
+   "fieldname": "user",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "User",
+   "options": "User",
+   "reqd": 1
+  },
+  {
+   "fieldname": "document",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "label": "Document",
+   "options": "\nStock Entry\nTransformation\nBlock Production\nProduction Form\nSales Order\nDelivery Note\nSales Invoice\nPurchase Order\nPurchase Receipt\nPurchase Invoice",
+   "reqd": 1
+  },
+  {
+   "fieldname": "type",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "label": "Type",
+   "options": "\nMaterial Issue\nMaterial Receipt\nMaterial Transfer\nManufacture\nRepack\nSend to Warehouse\nReceive at Warehouse"
+  },
+  {
+   "fieldname": "source_wh",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Source WH",
+   "options": "Warehouse"
+  },
+  {
+   "fieldname": "target_wh",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Target WH",
+   "options": "Warehouse"
+  }
+ ],
+ "istable": 1,
+ "modified": "2021-04-23 14:46:44.686056",
+ "modified_by": "Administrator",
+ "module": "Addon Customization",
+ "name": "Warehouse Access Settings Child",
+ "owner": "Administrator",
+ "permissions": [],
+ "quick_entry": 1,
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "track_changes": 1
+}

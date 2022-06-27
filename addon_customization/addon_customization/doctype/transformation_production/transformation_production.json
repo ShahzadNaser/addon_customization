@@ -1,0 +1,160 @@
+{
+ "allow_rename": 1,
+ "autoname": "naming_series:",
+ "creation": "2020-06-07 15:00:28.191886",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "section_break_1",
+  "naming_series",
+  "company",
+  "warehouse",
+  "column_break_5",
+  "posting_date",
+  "posting_time",
+  "production_item_section",
+  "transformation_production_item",
+  "total_cost_production",
+  "raw_material_section",
+  "transformation_production_material",
+  "total_cost_material",
+  "amended_from"
+ ],
+ "fields": [
+  {
+   "default": "Today",
+   "fieldname": "posting_date",
+   "fieldtype": "Date",
+   "label": "Posting Date"
+  },
+  {
+   "fieldname": "posting_time",
+   "fieldtype": "Time",
+   "label": "Posting Time"
+  },
+  {
+   "fieldname": "naming_series",
+   "fieldtype": "Select",
+   "label": "Naming Series",
+   "options": "TP-.MM.-.YYYY.-.#####"
+  },
+  {
+   "fieldname": "warehouse",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Warehouse",
+   "options": "Warehouse",
+   "reqd": 1
+  },
+  {
+   "fieldname": "transformation_production_item",
+   "fieldtype": "Table",
+   "label": "Transformation Production Item",
+   "options": "Transformation Production Item",
+   "reqd": 1
+  },
+  {
+   "fieldname": "transformation_production_material",
+   "fieldtype": "Table",
+   "label": "Transformation Production Material",
+   "options": "Transformation Production Material",
+   "reqd": 1
+  },
+  {
+   "fieldname": "amended_from",
+   "fieldtype": "Link",
+   "label": "Amended From",
+   "no_copy": 1,
+   "options": "Transformation Production",
+   "print_hide": 1,
+   "read_only": 1
+  },
+  {
+   "fieldname": "company",
+   "fieldtype": "Link",
+   "label": "Company",
+   "options": "Company"
+  },
+  {
+   "fieldname": "section_break_1",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "column_break_5",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "production_item_section",
+   "fieldtype": "Section Break",
+   "label": "PRODUCTION ITEM"
+  },
+  {
+   "fieldname": "total_cost_production",
+   "fieldtype": "Currency",
+   "label": "Total Cost",
+   "read_only": 1
+  },
+  {
+   "fieldname": "raw_material_section",
+   "fieldtype": "Section Break",
+   "label": "RAW MATERIAL"
+  },
+  {
+   "fieldname": "total_cost_material",
+   "fieldtype": "Currency",
+   "label": "Total Cost Material",
+   "read_only": 1
+  }
+ ],
+ "is_submittable": 1,
+ "modified": "2021-04-06 04:07:44.035826",
+ "modified_by": "Administrator",
+ "module": "Addon Customization",
+ "name": "Transformation Production",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "cancel": 1,
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "submit": 1,
+   "write": 1
+  },
+  {
+   "create": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Manufacturing User",
+   "share": 1,
+   "submit": 1,
+   "write": 1
+  },
+  {
+   "cancel": 1,
+   "create": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Manufacturing Manager",
+   "share": 1,
+   "submit": 1,
+   "write": 1
+  }
+ ],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "track_changes": 1
+}

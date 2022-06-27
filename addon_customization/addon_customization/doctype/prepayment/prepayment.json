@@ -1,0 +1,235 @@
+{
+ "autoname": "naming_series:",
+ "creation": "2020-07-06 17:41:39.140713",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "section_break_1",
+  "naming_series",
+  "save_as",
+  "column_break_6",
+  "posting_date",
+  "status_prepayment",
+  "section_break_9",
+  "journal_entry_type",
+  "location",
+  "description",
+  "column_break_12",
+  "debit_account",
+  "debit_party_type",
+  "debit_party",
+  "credit_account",
+  "credit_party_type",
+  "credit_party",
+  "section_break_15",
+  "prepayment_type",
+  "date_start",
+  "column_break_17",
+  "total_amount",
+  "month",
+  "amount_per_month",
+  "section_break_21",
+  "generate_schedule_date",
+  "prepayment_child",
+  "amended_from"
+ ],
+ "fields": [
+  {
+   "fieldname": "section_break_1",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "naming_series",
+   "fieldtype": "Select",
+   "label": "Series",
+   "options": "PP-.MM.-.YYYY.-.#####"
+  },
+  {
+   "fieldname": "save_as",
+   "fieldtype": "Select",
+   "label": "Save as",
+   "options": "Submit\nDraft",
+   "reqd": 1
+  },
+  {
+   "fieldname": "column_break_6",
+   "fieldtype": "Column Break"
+  },
+  {
+   "default": "Today",
+   "fieldname": "posting_date",
+   "fieldtype": "Date",
+   "label": "Posting Date",
+   "reqd": 1
+  },
+  {
+   "allow_on_submit": 1,
+   "fieldname": "status_prepayment",
+   "fieldtype": "Select",
+   "hidden": 1,
+   "label": "Status Prepayment",
+   "no_copy": 1,
+   "options": "Open\nClosed"
+  },
+  {
+   "fieldname": "section_break_9",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "journal_entry_type",
+   "fieldtype": "Select",
+   "label": "Journal Entry Type",
+   "options": "Journal Entry\nInter Company Journal Entry\nBank Entry\nCash Entry\nCredit Card Entry\nDebit Note\nCredit Note\nContra Entry\nExcise Entry\nWrite Off Entry\nOpening Entry\nDepreciation Entry\nExchange Rate Revaluation"
+  },
+  {
+   "fieldname": "description",
+   "fieldtype": "Small Text",
+   "label": "Description"
+  },
+  {
+   "fieldname": "column_break_12",
+   "fieldtype": "Column Break"
+  },
+  {
+   "allow_on_submit": 1,
+   "fieldname": "debit_account",
+   "fieldtype": "Link",
+   "label": "Debit Account",
+   "options": "Account",
+   "reqd": 1
+  },
+  {
+   "allow_on_submit": 1,
+   "fieldname": "credit_account",
+   "fieldtype": "Link",
+   "label": "Credit Account",
+   "options": "Account",
+   "reqd": 1
+  },
+  {
+   "fieldname": "section_break_15",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "prepayment_type",
+   "fieldtype": "Select",
+   "label": "Prepayment Type",
+   "options": "Based on Month\nBased on Amount per Month"
+  },
+  {
+   "fieldname": "column_break_17",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "total_amount",
+   "fieldtype": "Currency",
+   "label": "Total Amount",
+   "reqd": 1
+  },
+  {
+   "depends_on": "eval:doc.prepayment_type==\"Based on Month\" || doc.month",
+   "fieldname": "month",
+   "fieldtype": "Int",
+   "label": "Month"
+  },
+  {
+   "depends_on": "eval:doc.prepayment_type==\"Based on Amount per Month\" || doc.amount_per_month",
+   "fieldname": "amount_per_month",
+   "fieldtype": "Currency",
+   "label": "Amount per Month"
+  },
+  {
+   "fieldname": "section_break_21",
+   "fieldtype": "Section Break"
+  },
+  {
+   "allow_on_submit": 1,
+   "fieldname": "prepayment_child",
+   "fieldtype": "Table",
+   "label": "Prepayment Child",
+   "options": "Prepayment Child"
+  },
+  {
+   "fieldname": "amended_from",
+   "fieldtype": "Link",
+   "label": "Amended From",
+   "no_copy": 1,
+   "options": "Prepayment",
+   "print_hide": 1,
+   "read_only": 1
+  },
+  {
+   "fieldname": "date_start",
+   "fieldtype": "Date",
+   "in_list_view": 1,
+   "label": "Date Start",
+   "reqd": 1
+  },
+  {
+   "depends_on": "eval:!doc.prepayment_child",
+   "fieldname": "generate_schedule_date",
+   "fieldtype": "Button",
+   "label": "Generate Schedule Date",
+   "options": "generate_schedule_date"
+  },
+  {
+   "fieldname": "location",
+   "fieldtype": "Link",
+   "label": "Branch",
+   "options": "Branch",
+   "reqd": 1
+  },
+  {
+   "allow_on_submit": 1,
+   "fieldname": "debit_party_type",
+   "fieldtype": "Link",
+   "label": "Debit Party Type",
+   "options": "DocType"
+  },
+  {
+   "allow_on_submit": 1,
+   "fieldname": "debit_party",
+   "fieldtype": "Dynamic Link",
+   "label": "Debit Party",
+   "options": "debit_party_type"
+  },
+  {
+   "allow_on_submit": 1,
+   "fieldname": "credit_party_type",
+   "fieldtype": "Link",
+   "label": "Credit Party Type",
+   "options": "DocType"
+  },
+  {
+   "allow_on_submit": 1,
+   "fieldname": "credit_party",
+   "fieldtype": "Dynamic Link",
+   "label": "Credit Party",
+   "options": "credit_party_type"
+  }
+ ],
+ "is_submittable": 1,
+ "modified": "2020-08-14 03:52:58.038492",
+ "modified_by": "Administrator",
+ "module": "Addon Customization",
+ "name": "Prepayment",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "track_changes": 1
+}

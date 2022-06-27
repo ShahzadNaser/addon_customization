@@ -1,0 +1,153 @@
+{
+ "autoname": "naming_series:",
+ "creation": "2020-09-22 10:35:12.921558",
+ "doctype": "DocType",
+ "document_type": "Setup",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "naming_series",
+  "posting_date",
+  "column_break_3",
+  "customer",
+  "customer_name",
+  "customer_email",
+  "section_break_6",
+  "email_type",
+  "email_subject",
+  "email_body",
+  "column_break_8",
+  "from_date_gl",
+  "to_date_gl",
+  "every_days",
+  "section_break_11",
+  "email_for_customer_child_data_list",
+  "amended_from"
+ ],
+ "fields": [
+  {
+   "fieldname": "naming_series",
+   "fieldtype": "Select",
+   "label": "Series",
+   "options": "EMFC-.MM.-.YYYY.-.#####"
+  },
+  {
+   "default": "Today",
+   "fieldname": "posting_date",
+   "fieldtype": "Date",
+   "label": "Posting Date"
+  },
+  {
+   "fieldname": "column_break_3",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "customer",
+   "fieldtype": "Link",
+   "label": "Customer",
+   "options": "Customer"
+  },
+  {
+   "fieldname": "customer_email",
+   "fieldtype": "Table",
+   "label": "Customer Email",
+   "options": "Email for Customer Child Email List"
+  },
+  {
+   "fieldname": "section_break_6",
+   "fieldtype": "Section Break"
+  },
+  {
+   "depends_on": "eval:doc.email_type==\"Periode\"",
+   "fieldname": "from_date_gl",
+   "fieldtype": "Date",
+   "label": "From Date GL"
+  },
+  {
+   "depends_on": "eval:doc.email_type==\"Periode\"",
+   "fieldname": "to_date_gl",
+   "fieldtype": "Date",
+   "label": "To Date GL"
+  },
+  {
+   "fieldname": "email_for_customer_child_data_list",
+   "fieldtype": "Table",
+   "hidden": 1,
+   "label": "Email for Customer Child Data List",
+   "options": "Email for Customer Child Data List",
+   "read_only": 1
+  },
+  {
+   "fieldname": "amended_from",
+   "fieldtype": "Link",
+   "label": "Amended From",
+   "no_copy": 1,
+   "options": "Email for Customer",
+   "print_hide": 1,
+   "read_only": 1
+  },
+  {
+   "fieldname": "email_type",
+   "fieldtype": "Select",
+   "label": "Email Type",
+   "options": "Monthly\nPeriode"
+  },
+  {
+   "fieldname": "column_break_8",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "section_break_11",
+   "fieldtype": "Section Break"
+  },
+  {
+   "depends_on": "eval:doc.email_type==\"Monthly\"",
+   "fieldname": "every_days",
+   "fieldtype": "Select",
+   "label": "Every Days",
+   "options": "01\n02\n03\n04\n05\n06\n07\n08\n09\n10\n11\n12\n13\n14\n15\n16\n17\n18\n19\n20\n21\n22\n23\n24\n25\n26\n27\n28\n29\n30\n31"
+  },
+  {
+   "fetch_from": "customer.customer_name",
+   "fieldname": "customer_name",
+   "fieldtype": "Data",
+   "label": "Customer Name"
+  },
+  {
+   "fieldname": "email_body",
+   "fieldtype": "Text",
+   "label": "Email Body"
+  },
+  {
+   "fieldname": "email_subject",
+   "fieldtype": "Data",
+   "label": "Email Subject",
+   "read_only": 1
+  }
+ ],
+ "is_submittable": 1,
+ "modified": "2020-09-22 15:58:39.726716",
+ "modified_by": "Administrator",
+ "module": "Addon Customization",
+ "name": "Email for Customer",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "cancel": 1,
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "submit": 1,
+   "write": 1
+  }
+ ],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "track_changes": 1
+}

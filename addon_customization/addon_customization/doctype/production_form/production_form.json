@@ -1,0 +1,248 @@
+{
+ "allow_rename": 1,
+ "autoname": "naming_series:",
+ "creation": "2020-06-03 10:20:39.582225",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "sb1",
+  "naming_series",
+  "company",
+  "cb1_sb1",
+  "posting_date",
+  "posting_time",
+  "sales_order",
+  "sb2",
+  "raw_material_source_warehouse",
+  "target_warehouse",
+  "work_in_progress_warehouse",
+  "cb1_sb2",
+  "scrap_warehouse",
+  "sb3",
+  "production_order_item",
+  "get_material",
+  "sb4",
+  "production_order_material_item",
+  "sb5",
+  "production_order_total_cost",
+  "total_cost",
+  "amended_from",
+  "material_sent",
+  "production_done"
+ ],
+ "fields": [
+  {
+   "fieldname": "sb1",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "naming_series",
+   "fieldtype": "Select",
+   "label": "Series",
+   "options": "PD-.MM.-.YYYY.-.#####"
+  },
+  {
+   "fieldname": "cb1_sb1",
+   "fieldtype": "Column Break"
+  },
+  {
+   "default": "Today",
+   "fieldname": "posting_date",
+   "fieldtype": "Date",
+   "label": "Posting Date"
+  },
+  {
+   "fieldname": "posting_time",
+   "fieldtype": "Time",
+   "label": "Posting Time"
+  },
+  {
+   "fieldname": "sales_order",
+   "fieldtype": "Link",
+   "label": "Sales Order",
+   "options": "Sales Order"
+  },
+  {
+   "fieldname": "sb2",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "raw_material_source_warehouse",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Source Warehouse",
+   "options": "Warehouse",
+   "reqd": 1
+  },
+  {
+   "fieldname": "work_in_progress_warehouse",
+   "fieldtype": "Link",
+   "hidden": 1,
+   "label": "Work in Progress Warehouse",
+   "no_copy": 1,
+   "options": "Warehouse",
+   "print_hide": 1,
+   "report_hide": 1
+  },
+  {
+   "fieldname": "target_warehouse",
+   "fieldtype": "Link",
+   "hidden": 1,
+   "label": "Target Warehouse",
+   "no_copy": 1,
+   "options": "Warehouse",
+   "print_hide": 1,
+   "report_hide": 1
+  },
+  {
+   "fieldname": "scrap_warehouse",
+   "fieldtype": "Link",
+   "label": "Scrap Warehouse",
+   "options": "Warehouse"
+  },
+  {
+   "fieldname": "sb3",
+   "fieldtype": "Section Break",
+   "label": "ITEM TO PRODUCE"
+  },
+  {
+   "fieldname": "production_order_item",
+   "fieldtype": "Table",
+   "label": "Production Order Item",
+   "options": "Production Order Item"
+  },
+  {
+   "fieldname": "sb4",
+   "fieldtype": "Section Break",
+   "label": "RAW MATERIAL"
+  },
+  {
+   "fieldname": "production_order_material_item",
+   "fieldtype": "Table",
+   "label": "Production Order Material Item",
+   "options": "Production Order Material Item"
+  },
+  {
+   "fieldname": "sb5",
+   "fieldtype": "Section Break",
+   "label": "TOTAL COST PER ITEM PRODUCTION"
+  },
+  {
+   "fieldname": "production_order_total_cost",
+   "fieldtype": "Table",
+   "label": "Production Order Total Cost",
+   "options": "Production Order Total Cost",
+   "read_only": 1
+  },
+  {
+   "default": "0",
+   "fieldname": "total_cost",
+   "fieldtype": "Currency",
+   "label": "Total Cost",
+   "read_only": 1
+  },
+  {
+   "fieldname": "amended_from",
+   "fieldtype": "Link",
+   "label": "Amended From",
+   "no_copy": 1,
+   "options": "Production Form",
+   "print_hide": 1,
+   "read_only": 1
+  },
+  {
+   "fieldname": "cb1_sb2",
+   "fieldtype": "Column Break"
+  },
+  {
+   "description": "If you click this button it will replace data from table Production Order Material Item with new raw material from BOM Number for each Item to Manufacture",
+   "fieldname": "get_material",
+   "fieldtype": "Button",
+   "label": "Get Material",
+   "options": "get_material"
+  },
+  {
+   "default": "0",
+   "fieldname": "material_sent",
+   "fieldtype": "Check",
+   "hidden": 1,
+   "label": "Material Sent"
+  },
+  {
+   "default": "0",
+   "fieldname": "production_done",
+   "fieldtype": "Check",
+   "hidden": 1,
+   "label": "Production Done"
+  },
+  {
+   "fieldname": "company",
+   "fieldtype": "Link",
+   "label": "Company",
+   "options": "Company"
+  }
+ ],
+ "is_submittable": 1,
+ "modified": "2022-06-27 17:39:03.854020",
+ "modified_by": "Administrator",
+ "module": "Addon Customization",
+ "name": "Production Form",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  },
+  {
+   "create": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Manufacturing User",
+   "share": 1,
+   "submit": 1,
+   "write": 1
+  },
+  {
+   "cancel": 1,
+   "create": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Manufacturing Manager",
+   "share": 1,
+   "submit": 1,
+   "write": 1
+  },
+  {
+   "cancel": 1,
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Winco B-PD User",
+   "share": 1,
+   "submit": 1,
+   "write": 1
+  }
+ ],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "track_changes": 1
+}

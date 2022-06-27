@@ -1,0 +1,36 @@
+{
+ "creation": "2021-05-05 06:07:21.128032",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "description",
+  "value"
+ ],
+ "fields": [
+  {
+   "fieldname": "description",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Description"
+  },
+  {
+   "fieldname": "value",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "label": "Value",
+   "options": "\n1\n2\n3\n4\n5\n6"
+  }
+ ],
+ "istable": 1,
+ "modified": "2021-05-05 06:07:21.128032",
+ "modified_by": "Administrator",
+ "module": "Addon Customization",
+ "name": "EAC Personal Rating",
+ "owner": "Administrator",
+ "permissions": [],
+ "quick_entry": 1,
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "track_changes": 1
+}

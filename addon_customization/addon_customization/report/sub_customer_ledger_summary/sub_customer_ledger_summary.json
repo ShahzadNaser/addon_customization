@@ -1,0 +1,54 @@
+{
+ "add_total_row": 0,
+ "creation": "2021-02-05 08:48:50.533791",
+ "disable_prepared_report": 0,
+ "disabled": 0,
+ "docstatus": 0,
+ "doctype": "Report",
+ "idx": 0,
+ "is_standard": "Yes",
+ "modified": "2021-02-05 08:48:50.533791",
+ "modified_by": "Administrator",
+ "module": "Addon Customization",
+ "name": "Sub Customer Ledger Summary",
+ "owner": "Administrator",
+ "prepared_report": 0,
+ "ref_doctype": "Sales Invoice",
+ "report_name": "Sub Customer Ledger Summary",
+ "report_type": "Script Report",
+ "roles": [
+  {
+   "role": "Accounts User"
+  },
+  {
+   "role": "Accounts Manager"
+  },
+  {
+   "role": "Accounts User Winco"
+  },
+  {
+   "role": "Winco Sales User"
+  },
+  {
+   "role": "Winco Depot User"
+  },
+  {
+   "role": "Winco Account User"
+  },
+  {
+   "role": "Winco Accountant"
+  },
+  {
+   "role": "Winco Customer Service"
+  },
+  {
+   "role": "Winco BDM"
+  },
+  {
+   "role": "Winco Admin Mngr"
+  },
+  {
+   "role": "Winco Sales Rep"
+  }
+ ]
+}

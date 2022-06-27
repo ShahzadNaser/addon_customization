@@ -1,0 +1,122 @@
+{
+ "creation": "2020-06-29 10:24:23.915460",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "role",
+  "sb_stock",
+  "se",
+  "src",
+  "sb_production",
+  "transformation",
+  "block_prod",
+  "p_form",
+  "sb_purchasing",
+  "pr",
+  "pinv",
+  "sb_selling",
+  "so",
+  "dn",
+  "sinv"
+ ],
+ "fields": [
+  {
+   "fieldname": "role",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Role",
+   "options": "Role"
+  },
+  {
+   "default": "0",
+   "fieldname": "pr",
+   "fieldtype": "Check",
+   "label": "PR"
+  },
+  {
+   "default": "0",
+   "fieldname": "pinv",
+   "fieldtype": "Check",
+   "label": "PINV"
+  },
+  {
+   "default": "0",
+   "fieldname": "src",
+   "fieldtype": "Check",
+   "label": "SRC"
+  },
+  {
+   "default": "0",
+   "fieldname": "se",
+   "fieldtype": "Check",
+   "label": "SE"
+  },
+  {
+   "default": "0",
+   "fieldname": "transformation",
+   "fieldtype": "Check",
+   "label": "Transformation"
+  },
+  {
+   "default": "0",
+   "fieldname": "p_form",
+   "fieldtype": "Check",
+   "label": "P Form"
+  },
+  {
+   "default": "0",
+   "fieldname": "block_prod",
+   "fieldtype": "Check",
+   "label": "Block Prod"
+  },
+  {
+   "fieldname": "sb_stock",
+   "fieldtype": "Section Break",
+   "label": "STOCK"
+  },
+  {
+   "fieldname": "sb_production",
+   "fieldtype": "Section Break",
+   "label": "PRODUCTION"
+  },
+  {
+   "fieldname": "sb_purchasing",
+   "fieldtype": "Section Break",
+   "label": "PURCHASING"
+  },
+  {
+   "fieldname": "sb_selling",
+   "fieldtype": "Section Break",
+   "label": "SELLING"
+  },
+  {
+   "default": "0",
+   "fieldname": "so",
+   "fieldtype": "Check",
+   "label": "SO"
+  },
+  {
+   "default": "0",
+   "fieldname": "dn",
+   "fieldtype": "Check",
+   "label": "DN"
+  },
+  {
+   "default": "0",
+   "fieldname": "sinv",
+   "fieldtype": "Check",
+   "label": "SINV"
+  }
+ ],
+ "istable": 1,
+ "modified": "2020-07-13 18:03:39.388028",
+ "modified_by": "Administrator",
+ "module": "Addon Customization",
+ "name": "General Setting Hidden Rate",
+ "owner": "Administrator",
+ "permissions": [],
+ "quick_entry": 1,
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "track_changes": 1
+}

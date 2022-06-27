@@ -1,0 +1,134 @@
+{
+ "autoname": "naming_series:",
+ "creation": "2020-07-06 20:05:44.497029",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "section_break_1",
+  "naming_series",
+  "save_as",
+  "purpose",
+  "disable",
+  "column_break_5",
+  "journal_entry_type",
+  "location",
+  "debit_account",
+  "credit_account",
+  "section_break_8",
+  "customer_group_list",
+  "amended_from"
+ ],
+ "fields": [
+  {
+   "fieldname": "section_break_1",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "naming_series",
+   "fieldtype": "Select",
+   "label": "Series",
+   "options": "PS-.MM.-.YYYY.-.#####"
+  },
+  {
+   "fieldname": "purpose",
+   "fieldtype": "Data",
+   "label": "Purpose"
+  },
+  {
+   "default": "0",
+   "fieldname": "disable",
+   "fieldtype": "Check",
+   "in_list_view": 1,
+   "label": "Disable",
+   "reqd": 1
+  },
+  {
+   "fieldname": "column_break_5",
+   "fieldtype": "Column Break"
+  },
+  {
+   "allow_on_submit": 1,
+   "fieldname": "debit_account",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Debit Account",
+   "options": "Account",
+   "reqd": 1
+  },
+  {
+   "allow_on_submit": 1,
+   "fieldname": "credit_account",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Credit Account",
+   "options": "Account",
+   "reqd": 1
+  },
+  {
+   "fieldname": "section_break_8",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "customer_group_list",
+   "fieldtype": "Table",
+   "label": "Customer Group List",
+   "options": "Provision Setup Child",
+   "reqd": 1
+  },
+  {
+   "fieldname": "journal_entry_type",
+   "fieldtype": "Select",
+   "label": "Journal Entry Type",
+   "options": "Journal Entry\nInter Company Journal Entry\nBank Entry\nCash Entry\nCredit Card Entry\nDebit Note\nCredit Note\nContra Entry\nExcise Entry\nWrite Off Entry\nOpening Entry\nDepreciation Entry\nExchange Rate Revaluation",
+   "reqd": 1
+  },
+  {
+   "fieldname": "save_as",
+   "fieldtype": "Select",
+   "label": "Save as",
+   "options": "Submit\nDraft"
+  },
+  {
+   "fieldname": "amended_from",
+   "fieldtype": "Link",
+   "label": "Amended From",
+   "no_copy": 1,
+   "options": "Provision Setup",
+   "print_hide": 1,
+   "read_only": 1
+  },
+  {
+   "fieldname": "location",
+   "fieldtype": "Link",
+   "label": "Branch",
+   "options": "Branch",
+   "reqd": 1
+  }
+ ],
+ "is_submittable": 1,
+ "modified": "2020-08-06 14:08:56.774734",
+ "modified_by": "Administrator",
+ "module": "Addon Customization",
+ "name": "Provision Setup",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "cancel": 1,
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "submit": 1,
+   "write": 1
+  }
+ ],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "track_changes": 1
+}

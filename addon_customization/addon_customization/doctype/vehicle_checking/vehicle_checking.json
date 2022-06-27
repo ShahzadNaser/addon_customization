@@ -1,0 +1,128 @@
+{
+ "autoname": "naming_series:",
+ "creation": "2020-10-15 05:19:51.273230",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "section_break_1",
+  "naming_series",
+  "vehicle",
+  "vehicle_maker",
+  "vehicle_type",
+  "vehicle_model",
+  "vehicle_location",
+  "column_break_5",
+  "checking_date",
+  "actual_checking_date",
+  "checking_by",
+  "section_break_8",
+  "todo",
+  "amended_from"
+ ],
+ "fields": [
+  {
+   "fieldname": "section_break_1",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "naming_series",
+   "fieldtype": "Select",
+   "label": "Series",
+   "options": "VC-.MM.-.YYYY.-.#####"
+  },
+  {
+   "fieldname": "vehicle",
+   "fieldtype": "Link",
+   "label": "Vehicle",
+   "options": "Vehicle"
+  },
+  {
+   "fieldname": "checking_by",
+   "fieldtype": "Link",
+   "label": "Checking By",
+   "options": "User"
+  },
+  {
+   "fieldname": "column_break_5",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "checking_date",
+   "fieldtype": "Date",
+   "label": "Checking Date"
+  },
+  {
+   "allow_on_submit": 1,
+   "fieldname": "actual_checking_date",
+   "fieldtype": "Date",
+   "label": "Actual Checking Date"
+  },
+  {
+   "fieldname": "section_break_8",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "todo",
+   "fieldtype": "Table",
+   "label": "Todo",
+   "options": "Checking Todo"
+  },
+  {
+   "fetch_from": "vehicle.make",
+   "fieldname": "vehicle_maker",
+   "fieldtype": "Data",
+   "label": "Vehicle Maker"
+  },
+  {
+   "fetch_from": "vehicle.type",
+   "fieldname": "vehicle_type",
+   "fieldtype": "Data",
+   "label": "Vehicle Type"
+  },
+  {
+   "fetch_from": "vehicle.model",
+   "fieldname": "vehicle_model",
+   "fieldtype": "Data",
+   "label": "Vehicle Model"
+  },
+  {
+   "fetch_from": "vehicle.location",
+   "fieldname": "vehicle_location",
+   "fieldtype": "Data",
+   "label": "Vehicle Location"
+  },
+  {
+   "fieldname": "amended_from",
+   "fieldtype": "Link",
+   "label": "Amended From",
+   "no_copy": 1,
+   "options": "Vehicle Checking",
+   "print_hide": 1,
+   "read_only": 1
+  }
+ ],
+ "is_submittable": 1,
+ "modified": "2020-10-29 06:51:49.872086",
+ "modified_by": "Administrator",
+ "module": "Addon Customization",
+ "name": "Vehicle Checking",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "track_changes": 1
+}

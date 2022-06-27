@@ -1,0 +1,78 @@
+{
+ "creation": "2020-10-15 05:02:06.917319",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "user",
+  "user_fullname",
+  "checking_template",
+  "repeat_every",
+  "column_break_6",
+  "notify_date",
+  "expired_date"
+ ],
+ "fields": [
+  {
+   "fieldname": "user",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "User",
+   "options": "User",
+   "reqd": 1
+  },
+  {
+   "fieldname": "checking_template",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Checking Template",
+   "options": "Checking Template",
+   "reqd": 1
+  },
+  {
+   "fieldname": "repeat_every",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "label": "Repeat Every",
+   "options": "1 Week\n2 Week\n3 Week\n4 Week\n1 Month\n3 Month\n6 Month\n12 Month",
+   "reqd": 1
+  },
+  {
+   "default": "Today",
+   "description": "for weekly date will use to check the Day\n<br>\ne.g : If you choose date 06-10-2020\n<br>\nfor every n week will create reminder on Tuesday\n<br>\nfor monthly date will use based on date you choose\n<br>\ne.g : if you choose date 06-10-2020\n<br>\nfor every n month will create reminder on 06-n-nnnn\n",
+   "fieldname": "notify_date",
+   "fieldtype": "Date",
+   "in_list_view": 1,
+   "label": "Notify Date",
+   "reqd": 1
+  },
+  {
+   "default": "Today",
+   "fieldname": "expired_date",
+   "fieldtype": "Date",
+   "label": "Expired Date",
+   "reqd": 1
+  },
+  {
+   "fieldname": "column_break_6",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fetch_from": "user.full_name",
+   "fieldname": "user_fullname",
+   "fieldtype": "Data",
+   "label": "User Fullname",
+   "read_only": 1
+  }
+ ],
+ "istable": 1,
+ "modified": "2020-10-15 05:39:10.316115",
+ "modified_by": "Administrator",
+ "module": "Addon Customization",
+ "name": "Notify User List",
+ "owner": "Administrator",
+ "permissions": [],
+ "quick_entry": 1,
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "track_changes": 1
+}

@@ -1,0 +1,28 @@
+{
+ "creation": "2020-10-15 04:56:28.076033",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "description_of_todo"
+ ],
+ "fields": [
+  {
+   "fieldname": "description_of_todo",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Description of Todo"
+  }
+ ],
+ "istable": 1,
+ "modified": "2020-10-15 04:56:28.076033",
+ "modified_by": "Administrator",
+ "module": "Addon Customization",
+ "name": "Checking Template Todo",
+ "owner": "Administrator",
+ "permissions": [],
+ "quick_entry": 1,
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "track_changes": 1
+}

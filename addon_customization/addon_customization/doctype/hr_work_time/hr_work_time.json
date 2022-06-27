@@ -1,0 +1,48 @@
+{
+ "creation": "2020-07-22 09:20:32.142022",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "days",
+  "start_time",
+  "exit_time"
+ ],
+ "fields": [
+  {
+   "fieldname": "days",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "label": "Days",
+   "options": "\nMonday\nTuesday\nWednesday\nThursday\nFriday\nSaturday\nSunday",
+   "reqd": 1
+  },
+  {
+   "default": "00:00:00",
+   "fieldname": "start_time",
+   "fieldtype": "Time",
+   "in_list_view": 1,
+   "label": "Start Time",
+   "reqd": 1
+  },
+  {
+   "default": "00:00:00",
+   "fieldname": "exit_time",
+   "fieldtype": "Time",
+   "in_list_view": 1,
+   "label": "Exit Time",
+   "reqd": 1
+  }
+ ],
+ "istable": 1,
+ "modified": "2020-07-22 09:41:37.499988",
+ "modified_by": "Administrator",
+ "module": "Addon Customization",
+ "name": "HR Work Time",
+ "owner": "Administrator",
+ "permissions": [],
+ "quick_entry": 1,
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "track_changes": 1
+}

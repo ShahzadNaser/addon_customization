@@ -1,0 +1,109 @@
+{
+ "creation": "2020-06-05 14:29:58.358603",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "sb1",
+  "item_production",
+  "item_name",
+  "sb1_cb1",
+  "stock_uom",
+  "foam_block_size",
+  "sb2",
+  "qty",
+  "total_size",
+  "sb2_cb1",
+  "rate",
+  "total_cost"
+ ],
+ "fields": [
+  {
+   "fieldname": "sb1",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "item_name",
+   "fieldtype": "Data",
+   "label": "Item Name"
+  },
+  {
+   "fieldname": "sb1_cb1",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "stock_uom",
+   "fieldtype": "Data",
+   "label": "Stock UOM",
+   "read_only": 1
+  },
+  {
+   "columns": 1,
+   "fieldname": "foam_block_size",
+   "fieldtype": "Int",
+   "in_list_view": 1,
+   "label": "Size",
+   "read_only": 1
+  },
+  {
+   "fieldname": "sb2",
+   "fieldtype": "Section Break"
+  },
+  {
+   "columns": 1,
+   "default": "1",
+   "fieldname": "qty",
+   "fieldtype": "Float",
+   "in_list_view": 1,
+   "label": "Qty"
+  },
+  {
+   "default": "0",
+   "fieldname": "total_size",
+   "fieldtype": "Float",
+   "label": "Total Size",
+   "read_only": 1
+  },
+  {
+   "fieldname": "sb2_cb1",
+   "fieldtype": "Column Break"
+  },
+  {
+   "columns": 2,
+   "default": "0",
+   "fieldname": "rate",
+   "fieldtype": "Currency",
+   "in_list_view": 1,
+   "label": "Rate",
+   "read_only": 1
+  },
+  {
+   "columns": 2,
+   "default": "0",
+   "fieldname": "total_cost",
+   "fieldtype": "Currency",
+   "in_list_view": 1,
+   "label": "Total Cost",
+   "read_only": 1
+  },
+  {
+   "columns": 4,
+   "fieldname": "item_production",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Item",
+   "options": "Item"
+  }
+ ],
+ "istable": 1,
+ "modified": "2020-06-05 18:15:24.008267",
+ "modified_by": "Administrator",
+ "module": "Addon Customization",
+ "name": "Block Production Item",
+ "owner": "Administrator",
+ "permissions": [],
+ "quick_entry": 1,
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "track_changes": 1
+}

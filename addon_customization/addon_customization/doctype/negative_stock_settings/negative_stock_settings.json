@@ -1,0 +1,46 @@
+{
+ "creation": "2020-08-31 07:46:59.319646",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "allow_negative_stock_for_user",
+  "allow_negative_stock_for_warehouse"
+ ],
+ "fields": [
+  {
+   "fieldname": "allow_negative_stock_for_user",
+   "fieldtype": "Table",
+   "label": "Allow Negative Stock For User",
+   "options": "Allow Negative Stock For User"
+  },
+  {
+   "fieldname": "allow_negative_stock_for_warehouse",
+   "fieldtype": "Table",
+   "label": "Allow Negative Stock For Warehouse",
+   "options": "Allow Negative Stock For Warehouse"
+  }
+ ],
+ "issingle": 1,
+ "modified": "2020-08-31 07:46:59.319646",
+ "modified_by": "Administrator",
+ "module": "Addon Customization",
+ "name": "Negative Stock Settings",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "print": 1,
+   "read": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "quick_entry": 1,
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "track_changes": 1
+}

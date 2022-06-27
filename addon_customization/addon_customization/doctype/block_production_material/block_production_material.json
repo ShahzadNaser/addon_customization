@@ -1,0 +1,101 @@
+{
+ "creation": "2020-06-05 14:31:23.160136",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "sb1",
+  "item_material",
+  "item_name",
+  "sb1_cb1",
+  "stock_uom",
+  "sb2",
+  "qty_material",
+  "sb2_cb1",
+  "rate",
+  "total_cost",
+  "qty_balance"
+ ],
+ "fields": [
+  {
+   "fieldname": "sb1",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "item_name",
+   "fieldtype": "Data",
+   "label": "Item Name"
+  },
+  {
+   "fieldname": "sb1_cb1",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "stock_uom",
+   "fieldtype": "Data",
+   "label": "Stock UOM",
+   "read_only": 1
+  },
+  {
+   "fieldname": "sb2",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "sb2_cb1",
+   "fieldtype": "Column Break"
+  },
+  {
+   "columns": 2,
+   "default": "0",
+   "fieldname": "rate",
+   "fieldtype": "Currency",
+   "in_list_view": 1,
+   "label": "Rate",
+   "read_only": 1
+  },
+  {
+   "columns": 2,
+   "fieldname": "total_cost",
+   "fieldtype": "Currency",
+   "in_list_view": 1,
+   "label": "Total Cost",
+   "read_only": 1
+  },
+  {
+   "columns": 1,
+   "default": "0",
+   "fieldname": "qty_balance",
+   "fieldtype": "Float",
+   "in_list_view": 1,
+   "label": "Qty Balance",
+   "read_only": 1
+  },
+  {
+   "columns": 4,
+   "fieldname": "item_material",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Item",
+   "options": "Item"
+  },
+  {
+   "columns": 1,
+   "default": "1",
+   "fieldname": "qty_material",
+   "fieldtype": "Float",
+   "in_list_view": 1,
+   "label": "Qty"
+  }
+ ],
+ "istable": 1,
+ "modified": "2020-06-05 18:36:11.239973",
+ "modified_by": "Administrator",
+ "module": "Addon Customization",
+ "name": "Block Production Material",
+ "owner": "Administrator",
+ "permissions": [],
+ "quick_entry": 1,
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "track_changes": 1
+}

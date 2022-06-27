@@ -1,0 +1,68 @@
+{
+ "creation": "2021-05-05 05:56:14.687033",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "employee_manager",
+  "employee_name_manager",
+  "position_manager",
+  "department_manager",
+  "joining_date_manager",
+  "email_manager"
+ ],
+ "fields": [
+  {
+   "fieldname": "employee_manager",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Employee",
+   "options": "Employee"
+  },
+  {
+   "fetch_from": "employee_manager.employee_name",
+   "fieldname": "employee_name_manager",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Employee Name"
+  },
+  {
+   "fetch_from": "employee_manager.designation",
+   "fieldname": "position_manager",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Position"
+  },
+  {
+   "fetch_from": "employee_manager.department",
+   "fieldname": "department_manager",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Department"
+  },
+  {
+   "fetch_from": "employee_manager.date_of_joining",
+   "fieldname": "joining_date_manager",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Joining Date"
+  },
+  {
+   "fieldname": "email_manager",
+   "fieldtype": "Data",
+   "label": "Email",
+   "options": "email"
+  }
+ ],
+ "istable": 1,
+ "modified": "2021-05-05 06:00:02.205066",
+ "modified_by": "Administrator",
+ "module": "Addon Customization",
+ "name": "EAC Manager",
+ "owner": "Administrator",
+ "permissions": [],
+ "quick_entry": 1,
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "track_changes": 1
+}

@@ -1,0 +1,127 @@
+{
+ "creation": "2020-06-03 10:13:41.318976",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "sb_item_detail",
+  "item_to_manufacture",
+  "item_name",
+  "cb1_sb_item_detail",
+  "bom_no",
+  "warehouse",
+  "sb_qty",
+  "qty",
+  "uom",
+  "sb_costing",
+  "operating_cost",
+  "raw_material_cost",
+  "scrap_material_cost",
+  "unit_cost",
+  "total_cost"
+ ],
+ "fields": [
+  {
+   "fieldname": "sb_item_detail",
+   "fieldtype": "Section Break",
+   "label": "ITEM DETAIL"
+  },
+  {
+   "fieldname": "item_to_manufacture",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Item to Manufacture",
+   "options": "Item",
+   "read_only": 1
+  },
+  {
+   "fieldname": "item_name",
+   "fieldtype": "Data",
+   "label": "Item Name",
+   "read_only": 1
+  },
+  {
+   "fieldname": "cb1_sb_item_detail",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "bom_no",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "BOM No",
+   "options": "BOM",
+   "read_only": 1
+  },
+  {
+   "fieldname": "warehouse",
+   "fieldtype": "Link",
+   "label": "Warehouse",
+   "options": "Warehouse",
+   "read_only": 1
+  },
+  {
+   "fieldname": "sb_qty",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "qty",
+   "fieldtype": "Float",
+   "in_list_view": 1,
+   "label": "Qty",
+   "read_only": 1
+  },
+  {
+   "fieldname": "uom",
+   "fieldtype": "Link",
+   "label": "UOM",
+   "options": "UOM",
+   "read_only": 1
+  },
+  {
+   "fieldname": "sb_costing",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "operating_cost",
+   "fieldtype": "Currency",
+   "label": "Operating Cost",
+   "read_only": 1
+  },
+  {
+   "fieldname": "raw_material_cost",
+   "fieldtype": "Currency",
+   "label": "Raw Material Cost",
+   "read_only": 1
+  },
+  {
+   "fieldname": "scrap_material_cost",
+   "fieldtype": "Currency",
+   "label": "Scrap Material Cost",
+   "read_only": 1
+  },
+  {
+   "fieldname": "total_cost",
+   "fieldtype": "Currency",
+   "in_list_view": 1,
+   "label": "Total Cost",
+   "read_only": 1
+  },
+  {
+   "fieldname": "unit_cost",
+   "fieldtype": "Currency",
+   "in_list_view": 1,
+   "label": "Unit Cost",
+   "read_only": 1
+  }
+ ],
+ "istable": 1,
+ "modified": "2020-06-04 20:11:37.228612",
+ "modified_by": "Administrator",
+ "module": "Addon Customization",
+ "name": "Production Order Total Cost",
+ "owner": "Administrator",
+ "permissions": [],
+ "quick_entry": 1,
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "track_changes": 1
+}

@@ -1,0 +1,112 @@
+{
+ "creation": "2021-03-28 15:34:38.580670",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "from_item",
+  "from_item_name",
+  "from_item_uom",
+  "to_item",
+  "to_item_name",
+  "to_item_uom",
+  "qty",
+  "from_warehouse",
+  "to_warehouse",
+  "section_break_10",
+  "basic_rate",
+  "basic_amount"
+ ],
+ "fields": [
+  {
+   "fieldname": "from_item",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "From Item",
+   "options": "Item",
+   "reqd": 1
+  },
+  {
+   "fetch_from": "from_item.item_name",
+   "fieldname": "from_item_name",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "From Item Name"
+  },
+  {
+   "fieldname": "to_item",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "To Item",
+   "options": "Item",
+   "reqd": 1
+  },
+  {
+   "fetch_from": "to_item.item_name",
+   "fieldname": "to_item_name",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "To Item Name"
+  },
+  {
+   "fieldname": "qty",
+   "fieldtype": "Float",
+   "in_list_view": 1,
+   "label": "Qty",
+   "reqd": 1
+  },
+  {
+   "fieldname": "from_warehouse",
+   "fieldtype": "Link",
+   "label": "From Warehouse",
+   "options": "Warehouse",
+   "reqd": 1
+  },
+  {
+   "fieldname": "to_warehouse",
+   "fieldtype": "Link",
+   "label": "To Warehouse",
+   "options": "Warehouse",
+   "reqd": 1
+  },
+  {
+   "fieldname": "basic_rate",
+   "fieldtype": "Currency",
+   "label": "Basic Rate"
+  },
+  {
+   "fieldname": "basic_amount",
+   "fieldtype": "Currency",
+   "label": "Basic Amount"
+  },
+  {
+   "fetch_from": "from_item.stock_uom",
+   "fieldname": "from_item_uom",
+   "fieldtype": "Link",
+   "label": "From Item UOM",
+   "options": "UOM"
+  },
+  {
+   "fetch_from": "to_item.stock_uom",
+   "fieldname": "to_item_uom",
+   "fieldtype": "Link",
+   "label": "To Item UOM",
+   "options": "UOM"
+  },
+  {
+   "fieldname": "section_break_10",
+   "fieldtype": "Section Break"
+  }
+ ],
+ "istable": 1,
+ "modified": "2021-03-28 15:34:38.580670",
+ "modified_by": "Administrator",
+ "module": "Addon Customization",
+ "name": "Transfer into Item Child",
+ "owner": "Administrator",
+ "permissions": [],
+ "quick_entry": 1,
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "track_changes": 1
+}

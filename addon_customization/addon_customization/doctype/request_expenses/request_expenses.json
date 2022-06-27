@@ -1,0 +1,202 @@
+{
+ "autoname": "naming_series:",
+ "creation": "2020-06-08 13:06:14.553682",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "sb1",
+  "naming_series",
+  "cb1_sb1",
+  "posting_date",
+  "posting_time",
+  "sb2",
+  "initial_money",
+  "purpose",
+  "cb99",
+  "from_account",
+  "to_account",
+  "sb3",
+  "status",
+  "money",
+  "actual_amount",
+  "column_break_16",
+  "final_money",
+  "sb5",
+  "je_initial_money",
+  "percent_je_initial_money",
+  "je_final_money",
+  "percent_je_final_money",
+  "amended_from"
+ ],
+ "fields": [
+  {
+   "fieldname": "sb1",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "naming_series",
+   "fieldtype": "Select",
+   "label": "Series",
+   "options": "RE-.MM.-.YYYY.-.#####"
+  },
+  {
+   "fieldname": "cb1_sb1",
+   "fieldtype": "Column Break"
+  },
+  {
+   "default": "Today",
+   "fieldname": "posting_date",
+   "fieldtype": "Date",
+   "label": "Posting Date"
+  },
+  {
+   "fieldname": "posting_time",
+   "fieldtype": "Time",
+   "label": "Posting Time"
+  },
+  {
+   "fieldname": "sb2",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "initial_money",
+   "fieldtype": "Currency",
+   "in_list_view": 1,
+   "label": "Initial Money",
+   "reqd": 1
+  },
+  {
+   "fieldname": "purpose",
+   "fieldtype": "Small Text",
+   "label": "Purpose"
+  },
+  {
+   "depends_on": "eval:doc.je_initial_money",
+   "fieldname": "sb3",
+   "fieldtype": "Section Break",
+   "label": "Actual"
+  },
+  {
+   "allow_on_submit": 1,
+   "depends_on": "eval:doc.je_initial_money",
+   "fieldname": "status",
+   "fieldtype": "Select",
+   "label": "Status",
+   "options": "Actual Fund\nNot Enough Funds\nExcess Funds\nReturned Funds"
+  },
+  {
+   "allow_on_submit": 1,
+   "default": "0",
+   "depends_on": "eval:doc.status==\"Not Enough Funds\" || doc.status == \"Excess Funds\"",
+   "fieldname": "money",
+   "fieldtype": "Currency",
+   "label": "Money"
+  },
+  {
+   "fieldname": "sb5",
+   "fieldtype": "Section Break"
+  },
+  {
+   "allow_on_submit": 1,
+   "fieldname": "je_initial_money",
+   "fieldtype": "Data",
+   "label": "JE Initial Money",
+   "read_only": 1
+  },
+  {
+   "fieldname": "je_final_money",
+   "fieldtype": "Data",
+   "hidden": 1,
+   "label": "JE Final Money",
+   "read_only": 1
+  },
+  {
+   "fieldname": "amended_from",
+   "fieldtype": "Link",
+   "label": "Amended From",
+   "no_copy": 1,
+   "options": "Request Expenses",
+   "print_hide": 1,
+   "read_only": 1
+  },
+  {
+   "allow_on_submit": 1,
+   "fieldname": "percent_je_initial_money",
+   "fieldtype": "Percent",
+   "hidden": 1,
+   "in_list_view": 1,
+   "label": "JE Initial Money",
+   "read_only": 1
+  },
+  {
+   "fieldname": "percent_je_final_money",
+   "fieldtype": "Percent",
+   "hidden": 1,
+   "in_list_view": 1,
+   "label": "JE Final Money",
+   "read_only": 1
+  },
+  {
+   "depends_on": "eval:doc.je_final_money",
+   "fieldname": "actual_amount",
+   "fieldtype": "Currency",
+   "label": "Actual Amount",
+   "read_only": 1
+  },
+  {
+   "fieldname": "cb99",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "from_account",
+   "fieldtype": "Link",
+   "label": "From Account",
+   "options": "Account",
+   "reqd": 1
+  },
+  {
+   "fieldname": "to_account",
+   "fieldtype": "Link",
+   "label": "To Account",
+   "options": "Account",
+   "reqd": 1
+  },
+  {
+   "fieldname": "column_break_16",
+   "fieldtype": "Column Break"
+  },
+  {
+   "allow_on_submit": 1,
+   "fieldname": "final_money",
+   "fieldtype": "Currency",
+   "label": "Final Money",
+   "read_only": 1
+  }
+ ],
+ "is_submittable": 1,
+ "modified": "2020-09-07 18:10:09.956413",
+ "modified_by": "Administrator",
+ "module": "Addon Customization",
+ "name": "Request Expenses",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "cancel": 1,
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "submit": 1,
+   "write": 1
+  }
+ ],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "track_changes": 1
+}

@@ -1,0 +1,174 @@
+{
+ "autoname": "naming_series:",
+ "creation": "2020-09-26 10:55:18.736207",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "naming_series",
+  "column_break_2",
+  "posting_date",
+  "valid_from_date",
+  "section_break_5",
+  "increase_or_decrease",
+  "increase_or_decrease_by",
+  "by_name",
+  "for_price_list",
+  "column_break_10",
+  "by_amount_or_percentage",
+  "by_amount",
+  "by_percentage",
+  "rounding_based_on",
+  "section_break_15",
+  "get_data_item",
+  "increase_decrease_item_price_current",
+  "amended_from"
+ ],
+ "fields": [
+  {
+   "fieldname": "naming_series",
+   "fieldtype": "Select",
+   "label": "Series",
+   "options": "IPA-.MM.-.YYYY.-.#####"
+  },
+  {
+   "fieldname": "column_break_2",
+   "fieldtype": "Column Break"
+  },
+  {
+   "default": "Today",
+   "fieldname": "posting_date",
+   "fieldtype": "Date",
+   "label": "Posting Date",
+   "read_only": 1
+  },
+  {
+   "fieldname": "increase_or_decrease",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "label": "Increase or Decrease",
+   "options": "\nIncrease\nDecrease",
+   "reqd": 1
+  },
+  {
+   "fieldname": "increase_or_decrease_by",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "label": "Increase or Decrease By",
+   "options": "\nItem\nItem Group\nItem SubGroup",
+   "reqd": 1
+  },
+  {
+   "fieldname": "by_name",
+   "fieldtype": "Dynamic Link",
+   "in_list_view": 1,
+   "label": "By Name",
+   "options": "increase_or_decrease_by",
+   "reqd": 1
+  },
+  {
+   "fieldname": "for_price_list",
+   "fieldtype": "Link",
+   "label": "For Price List",
+   "options": "Price List"
+  },
+  {
+   "fieldname": "by_amount_or_percentage",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "label": "By Amount or Percentage",
+   "options": "\nAmount\nPercentage",
+   "reqd": 1
+  },
+  {
+   "depends_on": "eval:doc.by_amount_or_percentage==\"Amount\"",
+   "fieldname": "by_amount",
+   "fieldtype": "Currency",
+   "label": "By Amount"
+  },
+  {
+   "depends_on": "eval:doc.by_amount_or_percentage==\"Percentage\"",
+   "fieldname": "by_percentage",
+   "fieldtype": "Float",
+   "label": "By Percentage"
+  },
+  {
+   "depends_on": "eval:doc.by_amount_or_percentage==\"Percentage\"",
+   "fieldname": "rounding_based_on",
+   "fieldtype": "Select",
+   "label": "Rounding Based On",
+   "options": "0\n10\n100\n1000"
+  },
+  {
+   "fieldname": "amended_from",
+   "fieldtype": "Link",
+   "label": "Amended From",
+   "no_copy": 1,
+   "options": "Item Price Adjustment",
+   "print_hide": 1,
+   "read_only": 1
+  },
+  {
+   "fieldname": "section_break_15",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "increase_decrease_item_price_current",
+   "fieldtype": "Table",
+   "label": "Increase Decrease Item Price Current",
+   "options": "Increase Decrease Item Price Current"
+  },
+  {
+   "fieldname": "amended_from",
+   "fieldtype": "Link",
+   "label": "Amended From",
+   "no_copy": 1,
+   "options": "Item Price Adjustment",
+   "print_hide": 1,
+   "read_only": 1
+  },
+  {
+   "default": "Today",
+   "fieldname": "valid_from_date",
+   "fieldtype": "Date",
+   "label": "Valid From Date"
+  },
+  {
+   "fieldname": "get_data_item",
+   "fieldtype": "Button",
+   "label": "Get Data Item",
+   "options": "get_data_item"
+  },
+  {
+   "fieldname": "section_break_5",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "column_break_10",
+   "fieldtype": "Column Break"
+  }
+ ],
+ "is_submittable": 1,
+ "modified": "2020-09-26 10:55:18.736207",
+ "modified_by": "Administrator",
+ "module": "Addon Customization",
+ "name": "Item Price Adjustment",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "track_changes": 1
+}

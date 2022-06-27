@@ -1,0 +1,13 @@
+{
+ "creation": "2020-07-05 15:20:32.759722",
+ "docstatus": 0,
+ "doctype": "Dashboard Chart Source",
+ "idx": 0,
+ "modified": "2020-07-05 15:44:33.761366",
+ "modified_by": "Administrator",
+ "module": "Addon Customization",
+ "name": "Sales per Warehouse",
+ "owner": "Administrator",
+ "source_name": "Sales per Warehouse",
+ "timeseries": 0
+}

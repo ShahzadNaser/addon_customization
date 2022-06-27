@@ -1,0 +1,125 @@
+{
+ "allow_rename": 1,
+ "autoname": "field:sub_customer_name",
+ "creation": "2020-06-27 17:47:00.061323",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "customer",
+  "customer_name",
+  "sub_customer_name",
+  "sub_customer_phone",
+  "sub_customer_email",
+  "sub_customer_location",
+  "id_card_type",
+  "id_card_number",
+  "column_break_9",
+  "credit_limit",
+  "bypass_credit_limit_check"
+ ],
+ "fields": [
+  {
+   "fieldname": "customer",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Customer",
+   "options": "Customer",
+   "reqd": 1
+  },
+  {
+   "fieldname": "sub_customer_name",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Sub Customer Name",
+   "reqd": 1,
+   "unique": 1
+  },
+  {
+   "fieldname": "sub_customer_phone",
+   "fieldtype": "Data",
+   "label": "Sub Customer Phone"
+  },
+  {
+   "fieldname": "sub_customer_email",
+   "fieldtype": "Data",
+   "label": "Sub Customer Email",
+   "options": "Email"
+  },
+  {
+   "fieldname": "id_card_type",
+   "fieldtype": "Select",
+   "label": "ID Card Type",
+   "options": "Driver License"
+  },
+  {
+   "fieldname": "id_card_number",
+   "fieldtype": "Data",
+   "label": "ID Card Number"
+  },
+  {
+   "fieldname": "sub_customer_location",
+   "fieldtype": "Link",
+   "label": "Sub Customer Location",
+   "options": "Territory"
+  },
+  {
+   "fetch_from": "customer.customer_name",
+   "fieldname": "customer_name",
+   "fieldtype": "Data",
+   "label": "Customer Name",
+   "read_only": 1
+  },
+  {
+   "fieldname": "column_break_9",
+   "fieldtype": "Column Break"
+  },
+  {
+   "default": "1",
+   "fieldname": "credit_limit",
+   "fieldtype": "Currency",
+   "label": "Credit Limit"
+  },
+  {
+   "default": "0",
+   "fieldname": "bypass_credit_limit_check",
+   "fieldtype": "Check",
+   "label": "Bypass Credit Limit Check"
+  }
+ ],
+ "modified": "2020-10-10 15:18:42.184138",
+ "modified_by": "Administrator",
+ "module": "Addon Customization",
+ "name": "Sub Customer",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  },
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Sales User",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "search_fields": "sub_customer_name, sub_customer_phone, sub_customer_email, sub_customer_location, id_card_number",
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "track_changes": 1
+}

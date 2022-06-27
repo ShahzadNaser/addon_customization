@@ -1,0 +1,190 @@
+{
+ "allow_rename": 1,
+ "autoname": "naming_series:",
+ "creation": "2020-06-05 14:44:33.966244",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "sb1",
+  "naming_series",
+  "source_warehouse",
+  "target_warehouse",
+  "item_subgroup",
+  "cb1_sb1",
+  "posting_date",
+  "posting_time",
+  "sb2",
+  "block_production_item",
+  "total_size",
+  "total_cost_production_item",
+  "sb3",
+  "block_production_material",
+  "total_cost_material",
+  "amended_from"
+ ],
+ "fields": [
+  {
+   "fieldname": "sb1",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "naming_series",
+   "fieldtype": "Select",
+   "label": "Series",
+   "options": "FP-PD-.MM.-.YYYY.-.######"
+  },
+  {
+   "fieldname": "source_warehouse",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Source Warehouse",
+   "options": "Warehouse",
+   "reqd": 1
+  },
+  {
+   "fieldname": "target_warehouse",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Target Warehouse",
+   "options": "Warehouse",
+   "reqd": 1
+  },
+  {
+   "fieldname": "cb1_sb1",
+   "fieldtype": "Column Break"
+  },
+  {
+   "default": "Today",
+   "fieldname": "posting_date",
+   "fieldtype": "Date",
+   "label": "Posting Date"
+  },
+  {
+   "fieldname": "item_subgroup",
+   "fieldtype": "Link",
+   "label": "Item SubGroup",
+   "options": "Item SubGroup",
+   "reqd": 1
+  },
+  {
+   "fieldname": "sb2",
+   "fieldtype": "Section Break",
+   "label": "PRODUCED ITEMS"
+  },
+  {
+   "fieldname": "block_production_item",
+   "fieldtype": "Table",
+   "label": "Block Production Item",
+   "options": "Block Production Item"
+  },
+  {
+   "default": "0",
+   "fieldname": "total_size",
+   "fieldtype": "Float",
+   "label": "Total Size",
+   "read_only": 1
+  },
+  {
+   "default": "0",
+   "fieldname": "total_cost_production_item",
+   "fieldtype": "Currency",
+   "label": "Total Cost",
+   "read_only": 1
+  },
+  {
+   "fieldname": "sb3",
+   "fieldtype": "Section Break",
+   "label": "RAW MATERIALS"
+  },
+  {
+   "fieldname": "block_production_material",
+   "fieldtype": "Table",
+   "label": "Block Production Material",
+   "options": "Block Production Material"
+  },
+  {
+   "default": "0",
+   "fieldname": "total_cost_material",
+   "fieldtype": "Currency",
+   "label": "Total Cost",
+   "read_only": 1
+  },
+  {
+   "fieldname": "amended_from",
+   "fieldtype": "Link",
+   "label": "Amended From",
+   "no_copy": 1,
+   "options": "Block Production",
+   "print_hide": 1,
+   "read_only": 1
+  },
+  {
+   "fieldname": "posting_time",
+   "fieldtype": "Time",
+   "label": "Posting Time"
+  }
+ ],
+ "is_submittable": 1,
+ "modified": "2021-04-28 12:18:26.517216",
+ "modified_by": "Administrator",
+ "module": "Addon Customization",
+ "name": "Block Production",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  },
+  {
+   "create": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Manufacturing User",
+   "share": 1,
+   "submit": 1,
+   "write": 1
+  },
+  {
+   "cancel": 1,
+   "create": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Manufacturing Manager",
+   "share": 1,
+   "submit": 1,
+   "write": 1
+  },
+  {
+   "cancel": 1,
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Winco B-PD User",
+   "share": 1,
+   "submit": 1,
+   "write": 1
+  }
+ ],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "track_changes": 1
+}

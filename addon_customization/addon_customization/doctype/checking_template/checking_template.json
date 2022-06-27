@@ -1,0 +1,47 @@
+{
+ "autoname": "field:template_name",
+ "creation": "2020-10-15 04:56:44.275945",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "template_name",
+  "todo"
+ ],
+ "fields": [
+  {
+   "fieldname": "template_name",
+   "fieldtype": "Data",
+   "label": "Template Name",
+   "unique": 1
+  },
+  {
+   "fieldname": "todo",
+   "fieldtype": "Table",
+   "label": "Todo",
+   "options": "Checking Template Todo"
+  }
+ ],
+ "modified": "2020-10-15 04:56:44.275945",
+ "modified_by": "Administrator",
+ "module": "Addon Customization",
+ "name": "Checking Template",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "track_changes": 1
+}

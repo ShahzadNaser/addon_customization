@@ -1,0 +1,42 @@
+{
+ "creation": "2020-06-27 17:49:04.951519",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "role",
+  "customer",
+  "sub_customer"
+ ],
+ "fields": [
+  {
+   "fieldname": "role",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Role",
+   "options": "Role"
+  },
+  {
+   "fieldname": "customer",
+   "fieldtype": "Int",
+   "in_list_view": 1,
+   "label": "Customer"
+  },
+  {
+   "fieldname": "sub_customer",
+   "fieldtype": "Int",
+   "in_list_view": 1,
+   "label": "Sub Customer"
+  }
+ ],
+ "istable": 1,
+ "modified": "2020-06-27 17:49:04.951519",
+ "modified_by": "Administrator",
+ "module": "Addon Customization",
+ "name": "General Setting Sub Customer",
+ "owner": "Administrator",
+ "permissions": [],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "track_changes": 1
+}
