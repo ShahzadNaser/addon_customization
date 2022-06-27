@@ -2348,6 +2348,7 @@ def get_gl_entries_sinv(doc):
                         "debit": flt(sle.stock_value_difference *-1, precision),
                         "debit_in_account_currency":flt(sle.stock_value_difference *-1, precision),
                         "credit":0,
+                        "company":doc.company,
                         "credit_in_account_currency":0,
                         "is_opening": "No",
                         "voucher_type": "Sales Invoice",
@@ -2357,6 +2358,7 @@ def get_gl_entries_sinv(doc):
 
                     gl_entries.append({
                         "account": account_debit ,
+                        "company":doc.company,
                         "against": account_credit,
                         "cost_center": get_setting.cost_center,
                         "remarks": "Accounting Entry for Sales Invoice",
@@ -2374,6 +2376,7 @@ def get_gl_entries_sinv(doc):
 
                     gl_entries.append({
                         "account": account_debit,
+                        "company":doc.company,
                         "against": account_credit,
                         "cost_center": get_setting.cost_center,
                         "remarks": "Accounting Entry for Sales Invoice",
@@ -2390,6 +2393,7 @@ def get_gl_entries_sinv(doc):
                     gl_entries.append({
                         "account": account_credit,
                         "against": account_debit,
+                        "company":doc.company,
                         "cost_center": get_setting.cost_center,
                         "remarks": "Accounting Entry for Sales Invoice",
                         "credit": flt(sle.stock_value_difference, precision),
@@ -3483,6 +3487,7 @@ def get_gl_entries_sr(doc):
                 if i.amount_difference > 0 :
                     gl_list.append({
                         "account": stock_account,
+                        "company":doc.company,
                         "against": doc.expense_account,
                         "cost_center": get_setting.cost_center,
                         "remarks": "Accounting Entry for Stock Reconciliation",
@@ -3499,6 +3504,7 @@ def get_gl_entries_sr(doc):
 
                     gl_list.append({
                         "account": doc.expense_account,
+                        "company":doc.company,
                         "against": stock_account,
                         "cost_center": get_setting.cost_center,
                         "remarks": "Accounting Entry for Stock Reconciliation",
@@ -3515,6 +3521,7 @@ def get_gl_entries_sr(doc):
                 else :
                     gl_list.append({
                         "account": doc.expense_account,
+                        "company":doc.company,
                         "against": stock_account,
                         "cost_center": get_setting.cost_center,
                         "remarks": "Accounting Entry for Stock Reconciliation",
@@ -3532,6 +3539,7 @@ def get_gl_entries_sr(doc):
                     gl_list.append({
                         "account": stock_account,
                         "against": doc.expense_account,
+                        "company":doc.company,
                         "cost_center": get_setting.cost_center,
                         "remarks": "Accounting Entry for Stock Reconciliation",
                         "credit": flt(sle.stock_value_difference, precision),
@@ -3838,6 +3846,7 @@ def create_ste_gle_manual(doc, method):
                     gl_list.append({
                         "account": account_debit,
                         "against": account_credit,
+                        "company":doc.company,
                         "cost_center": get_setting.cost_center,
                         "remarks": "Accounting Entry for Stock Entry Production Form",
                         "debit": flt(i.amount, precision),
@@ -3849,6 +3858,7 @@ def create_ste_gle_manual(doc, method):
 
                     gl_list.append({
                         "account": account_credit,
+                        "company":doc.company,
                         "against": account_debit,
                         "cost_center": get_setting.cost_center,
                         "remarks": "Accounting Entry for Stock Entry Production Form",
@@ -3870,6 +3880,7 @@ def create_ste_gle_manual(doc, method):
                     gl_list.append({
                         "account": account_debit,
                         "against": account_credit,
+                        "company":doc.company,
                         "cost_center": get_setting.cost_center,
                         "remarks": "Accounting Entry for Stock Entry Production Form",
                         "debit": flt(i.amount, precision),
@@ -3882,6 +3893,7 @@ def create_ste_gle_manual(doc, method):
                     gl_list.append({
                         "account": account_credit,
                         "against": account_debit,
+                        "company":doc.company,
                         "cost_center": get_setting.cost_center,
                         "remarks": "Accounting Entry for Stock Entry Production Form",
                         "credit": flt(i.amount, precision),
@@ -3920,6 +3932,7 @@ def create_ste_gle_manual(doc, method):
                     gl_list.append({
                         "account": account_debit,
                         "against": account_credit,
+                        "company":doc.company,
                         "cost_center": get_setting.cost_center,
                         "remarks": "Accounting Entry for Stock Entry Block Production",
                         "debit": flt(i.amount, precision),
@@ -3932,6 +3945,7 @@ def create_ste_gle_manual(doc, method):
                     gl_list.append({
                         "account": account_credit,
                         "against": account_debit,
+                        "company":doc.company,
                         "cost_center": get_setting.cost_center,
                         "remarks": "Accounting Entry for Stock Entry Block Production",
                         "credit": flt(i.amount, precision),
@@ -3953,6 +3967,7 @@ def create_ste_gle_manual(doc, method):
                     gl_list.append({
                         "account": account_debit,
                         "against": account_credit,
+                        "company":doc.company,
                         "cost_center": get_setting.cost_center,
                         "remarks": "Accounting Entry for Stock Entry Block Production",
                         "debit": flt(i.amount, precision),
@@ -3965,6 +3980,7 @@ def create_ste_gle_manual(doc, method):
                     gl_list.append({
                         "account": account_credit,
                         "against": account_debit,
+                        "company":doc.company,
                         "cost_center": get_setting.cost_center,
                         "remarks": "Accounting Entry for Stock Entry Block Production",
                         "credit": flt(i.amount, precision),
@@ -4004,6 +4020,7 @@ def create_ste_gle_manual(doc, method):
                         "remarks": "Accounting Entry for Stock Entry Material Issue",
                         "debit": flt(i.amount, precision),
                         "is_opening": "No",
+                        "company":doc.company,
                         "voucher_type": "Stock Entry",
                         "voucher_no": doc.name,
                         "posting_date": doc.posting_date
@@ -4016,6 +4033,7 @@ def create_ste_gle_manual(doc, method):
                         "remarks": "Accounting Entry for Stock Entry Material Issue",
                         "credit": flt(i.amount, precision),
                         "is_opening": "No",
+                        "company":doc.company,
                         "voucher_type": "Stock Entry",
                         "voucher_no": doc.name,
                         "posting_date": doc.posting_date
@@ -4051,6 +4069,7 @@ def create_ste_gle_manual(doc, method):
                         "debit": flt(i.amount, precision),
                         "is_opening": "No",
                         "voucher_type": "Stock Entry",
+                        "company":doc.company,
                         "voucher_no": doc.name,
                         "posting_date": doc.posting_date
                     })
@@ -4063,6 +4082,7 @@ def create_ste_gle_manual(doc, method):
                         "credit": flt(i.amount, precision),
                         "is_opening": "No",
                         "voucher_type": "Stock Entry",
+                        "company":doc.company,
                         "voucher_no": doc.name,
                         "posting_date": doc.posting_date
                     })
@@ -4431,6 +4451,7 @@ def patch_ste_gle_manual():
                         "cost_center": get_setting.cost_center,
                         "remarks": "Accounting Entry for Stock Entry Material Receipt",
                         "debit": flt(i.amount, precision),
+                        "company":doc.company,
                         "is_opening": "No",
                         "voucher_type": "Stock Entry",
                         "voucher_no": doc.name,
@@ -4441,6 +4462,7 @@ def patch_ste_gle_manual():
                         "account": account_credit,
                         "against": account_debit,
                         "cost_center": get_setting.cost_center,
+                        "company":doc.company,
                         "remarks": "Accounting Entry for Stock Entry Material Receipt",
                         "credit": flt(i.amount, precision),
                         "is_opening": "No",
