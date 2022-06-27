@@ -62,7 +62,7 @@ class ProductionForm(Document):
 		se = frappe.new_doc("Stock Entry")
 		se.purpose = "Manufacture"
 		se.stock_entry_type = "Manufacture"
-		se.company = self.company
+		
 		se.set_posting_time = 1
 		se.posting_date = self.posting_date
 		se.posting_time = self.posting_time
