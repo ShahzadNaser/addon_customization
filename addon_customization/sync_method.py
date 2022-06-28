@@ -2098,6 +2098,7 @@ def make_supplier_gl_entry(doc, gl_entries):
                 "account": doc.credit_to,
                 "party_type": "Supplier",
                 "party": doc.supplier,
+                "company":doc.company,
                 "due_date": doc.due_date,
                 "against": doc.against_expense_account,
                 "credit": grand_total_in_company_currency,
@@ -2125,6 +2126,7 @@ def make_stock_adjustment_entry(doc, gl_entries, item, voucher_wise_stock_value,
         gl_entries.append(
             doc.get_gl_dict({
                 "account": cost_of_goods_sold_account,
+                "company":doc.company,
                 "against": item.expense_account,
                 "debit": stock_adjustment_amt,
                 "remarks": doc.get("remarks") or _("Stock Adjustment"),
@@ -2198,6 +2200,7 @@ def make_customer_gl_entry(doc, gl_entries):
             doc.get_gl_dict({
                 "account": doc.debit_to,
                 "party_type": "Customer",
+                "company":doc.company,
                 "party": doc.customer,
                 "due_date": doc.due_date,
                 "against": doc.against_income_account,
@@ -2218,6 +2221,7 @@ def make_tax_gl_entries(doc, gl_entries):
             gl_entries.append(
                 doc.get_gl_dict({
                     "account": tax.account_head,
+                    "company":doc.company,
                     "against": doc.customer,
                     "credit": flt(tax.base_tax_amount_after_discount_amount,
                         tax.precision("tax_amount_after_discount_amount")),
@@ -2454,6 +2458,7 @@ def get_gl_entries_prec(doc):
                         "debit": flt(sle.stock_value_difference *-1, precision),
                         "is_opening": "No",
                         "voucher_type": "Purchase Receipt",
+                        "company":doc.company,
                         "voucher_no": doc.name,
                         "posting_date": doc.posting_date
                     })
@@ -2466,6 +2471,7 @@ def get_gl_entries_prec(doc):
                         "credit": flt(sle.stock_value_difference *-1, precision),
                         "is_opening": "No",
                         "voucher_type": "Purchase Receipt",
+                        "company":doc.company,
                         "voucher_no": doc.name,
                         "posting_date": doc.posting_date
                     })
@@ -2481,6 +2487,7 @@ def get_gl_entries_prec(doc):
                         "is_opening": "No",
                         "voucher_type": "Purchase Receipt",
                         "voucher_no": doc.name,
+                        "company":doc.company,
                         "posting_date": doc.posting_date
                     })
 
@@ -2493,6 +2500,7 @@ def get_gl_entries_prec(doc):
                         "is_opening": "No",
                         "voucher_type": "Purchase Receipt",
                         "voucher_no": doc.name,
+                        "company":doc.company,
                         "posting_date": doc.posting_date
                     })
 
@@ -2534,6 +2542,7 @@ def get_gl_entries_dn(doc):
                         "debit": flt(sle.stock_value_difference *-1, precision),
                         "debit_in_account_currency": flt(sle.stock_value_difference *-1, precision),
                         "credit":0,
+                        "company":doc.company,
                         "credit_in_account_currency":0,
                         "is_opening": "No",
                         "voucher_type": "Delivery Note",
@@ -2545,6 +2554,7 @@ def get_gl_entries_dn(doc):
                         "account": account_debit ,
                         "against": account_credit,
                         "cost_center": get_setting.cost_center,
+                        "company":doc.company,
                         "remarks": "Accounting Entry for Delivery Note",
                         "credit": flt(sle.stock_value_difference *-1, precision),
                         "credit_in_account_currency": flt(sle.stock_value_difference *-1, precision),
@@ -2561,6 +2571,7 @@ def get_gl_entries_dn(doc):
                     gl_list.append({
                         "account": account_debit,
                         "against": account_credit,
+                        "company":doc.company,
                         "cost_center": get_setting.cost_center,
                         "remarks": "Accounting Entry for Delivery Note",
                         "debit": flt(sle.stock_value_difference, precision),
@@ -2576,6 +2587,7 @@ def get_gl_entries_dn(doc):
                     gl_list.append({
                         "account": account_credit,
                         "against": account_debit,
+                        "company":doc.company,
                         "cost_center": get_setting.cost_center,
                         "remarks": "Accounting Entry for Delivery Note",
                         "credit": flt(sle.stock_value_difference, precision),
@@ -2779,6 +2791,7 @@ def make_supplier_gl_entry_pinv(doc, gl_entries):
                 doc.get_gl_dict({
                     "account": doc.credit_to,
                     "party_type": "Supplier",
+                    "company":doc.company,
                     "party": doc.supplier,
                     "due_date": doc.due_date,
                     "against": doc.against_expense_account,
@@ -2807,6 +2820,7 @@ def make_stock_adjustment_entry(doc, gl_entries, item, voucher_wise_stock_value,
         gl_entries.append(
             doc.get_gl_dict({
                 "account": cost_of_goods_sold_account,
+                "company":doc.company,
                 "against": item.expense_account,
                 "debit": stock_adjustment_amt,
                 "remarks": doc.get("remarks") or _("Stock Adjustment"),
@@ -2846,6 +2860,7 @@ def make_item_gl_entries_pinv(doc, gl_entries):
                 gl_entries.append(
                     doc.get_gl_dict({
                         "account": item.expense_account,
+                        "company":doc.company,
                         "against": doc.supplier,
                         "debit": warehouse_debit_amount,
                         "remarks": doc.get("remarks") or _("Accounting Entry for Stock"),
@@ -2867,6 +2882,7 @@ def make_item_gl_entries_pinv(doc, gl_entries):
 
                 gl_entries.append(doc.get_gl_dict({
                         "account": expense_account,
+                        "company":doc.company,
                         "against": doc.supplier,
                         "debit": amount,
                         "cost_center": item.cost_center,
@@ -2880,6 +2896,7 @@ def make_item_gl_entries_pinv(doc, gl_entries):
                     gl_entries.append(doc.get_gl_dict({
                         "account": expenses_included_in_asset_valuation,
                         "against": expense_account,
+                        "company":doc.company,
                         "cost_center": item.cost_center,
                         "remarks": doc.get("remarks") or _("Accounting Entry for Stock"),
                         "credit": flt(item.landed_cost_voucher_amount),
@@ -2888,6 +2905,7 @@ def make_item_gl_entries_pinv(doc, gl_entries):
 
                     gl_entries.append(doc.get_gl_dict({
                         "account": expense_account,
+                        "company":doc.company,
                         "against": expenses_included_in_asset_valuation,
                         "cost_center": item.cost_center,
                         "remarks": doc.get("remarks") or _("Accounting Entry for Stock"),
@@ -2971,6 +2989,7 @@ def get_gl_entries_pinv(doc):
                     "account": account_credit ,
                     "against": account_debit,
                     "cost_center": get_setting.cost_center,
+                    "company":doc.company,
                     "remarks": "Accounting Entry for Purchase Invoice",
                     "debit": flt(i.amount*-1, precision),
                     "debit_in_account_currency": flt(i.amount*-1, precision),
@@ -2985,6 +3004,7 @@ def get_gl_entries_pinv(doc):
                 gl_entries.append({
                     "account": account_debit ,
                     "against": account_credit,
+                    "company":doc.company,
                     "cost_center": get_setting.cost_center,
                     "remarks": "Accounting Entry for Purchase Invoice",
                     "credit": flt(i.amount*-1, precision),
@@ -3008,6 +3028,7 @@ def get_gl_entries_pinv(doc):
                     "debit": flt(i.amount, precision),
                     "debit_in_account_currency": flt(i.amount, precision),
                     "credit":0,
+                    "company":doc.company,
                     "credit_in_account_currency":0,
                     "is_opening": "No",
                     "voucher_type": "Purchase Invoice",
@@ -3018,6 +3039,7 @@ def get_gl_entries_pinv(doc):
                 gl_entries.append({
                     "account": account_credit,
                     "against": account_debit,
+                    "company":doc.company,
                     "cost_center": get_setting.cost_center,
                     "remarks": "Accounting Entry for Sales Invoice",
                     "credit": flt(i.amount, precision),
@@ -3316,6 +3338,7 @@ def create_lcv_gle_manual(doc, method):
                     gl_list.append({
                         "account": account_credit,
                         "against": account_debit,
+                        "company":doc.company,
                         "cost_center": get_setting.cost_center,
                         "remarks": "Accounting Entry for Purchase Receipt",
                         "debit": flt(i.amount*-1, precision),
@@ -3328,6 +3351,7 @@ def create_lcv_gle_manual(doc, method):
                     gl_list.append({
                         "account": account_debit,
                         "against": account_credit,
+                        "company":doc.company,
                         "cost_center": get_setting.cost_center,
                         "remarks": "Accounting Entry for Purchase Receipt",
                         "credit": flt(i.amount*-1, precision),
@@ -3342,6 +3366,7 @@ def create_lcv_gle_manual(doc, method):
                     gl_list.append({
                         "account": account_debit,
                         "against": account_credit,
+                        "company":doc.company,
                         "cost_center": get_setting.cost_center,
                         "remarks": "Accounting Entry for Purchase Receipt",
                         "debit": flt(i.amount, precision),
@@ -3354,6 +3379,7 @@ def create_lcv_gle_manual(doc, method):
                     gl_list.append({
                         "account": account_credit,
                         "against": account_debit,
+                        "company":doc.company,
                         "cost_center": get_setting.cost_center,
                         "remarks": "Accounting Entry for Purchase Receipt",
                         "credit": flt(i.amount, precision),
@@ -3390,6 +3416,7 @@ def create_prec_gle_manual(doc, method):
                 gl_list.append({
                     "account": account_credit,
                     "against": account_debit,
+                    "company":doc.company,
                     "cost_center": get_setting.cost_center,
                     "remarks": "Accounting Entry for Purchase Receipt",
                     "debit": flt(i.amount*-1, precision),
@@ -3402,6 +3429,7 @@ def create_prec_gle_manual(doc, method):
                 gl_list.append({
                     "account": account_debit,
                     "against": account_credit,
+                    "company":doc.company,
                     "cost_center": get_setting.cost_center,
                     "remarks": "Accounting Entry for Purchase Receipt",
                     "credit": flt(i.amount*-1, precision),
@@ -3416,6 +3444,7 @@ def create_prec_gle_manual(doc, method):
                 gl_list.append({
                     "account": account_debit,
                     "against": account_credit,
+                    "company":doc.company,
                     "cost_center": get_setting.cost_center,
                     "remarks": "Accounting Entry for Purchase Receipt",
                     "debit": flt(i.amount, precision),
@@ -3428,6 +3457,7 @@ def create_prec_gle_manual(doc, method):
                 gl_list.append({
                     "account": account_credit,
                     "against": account_debit,
+                    "company":doc.company,
                     "cost_center": get_setting.cost_center,
                     "remarks": "Accounting Entry for Purchase Receipt",
                     "credit": flt(i.amount, precision),
