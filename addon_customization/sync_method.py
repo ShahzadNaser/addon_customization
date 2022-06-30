@@ -16,7 +16,7 @@ from frappe.utils import get_site_name
 
 from frappe import utils
 from frappe.utils import nowdate, add_days, random_string, get_url
-
+from erpnext.assets.doctype.asset.depreciation import get_gl_entries_on_asset_disposal
 import time
 import datetime
 
