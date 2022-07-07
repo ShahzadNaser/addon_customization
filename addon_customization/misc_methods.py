@@ -1,7 +1,7 @@
 import frappe
 from erpnext.assets.doctype.asset.depreciation import get_gl_entries_on_asset_disposal
 from frappe.utils import today
-
+from frappe import _
 
 def set_values_for_assets(remark,branch):
     #Set values for existing assets, To be run once
