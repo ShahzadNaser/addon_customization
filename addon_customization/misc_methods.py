@@ -34,7 +34,7 @@ def scrap_asset_(asset_name):
     je = frappe.new_doc("Journal Entry")
     je.voucher_type = "Journal Entry"
     je.naming_series = depreciation_series
-    je.remark = asset.remark
+    je.user_remark = asset.remark
     je.location = asset.asset_branch
     je.posting_date = today()
     je.company = asset.company
