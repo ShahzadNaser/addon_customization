@@ -97,7 +97,7 @@ class SyncMethod(Document):
 
 @frappe.whitelist()
 def cek_duplicate_warehouse_min_max_qty(doc, method):
-
+    
     # frappe.msgprint(frappe.utils.get_url())
 
     cek_warehouse = []

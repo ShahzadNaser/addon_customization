@@ -13,13 +13,10 @@ def set_values_for_assets(remark,branch):
             frappe.db.set_value("Asset",each.name,'asset_branch',asset_branch)
     return 
 
-
-
-
 @frappe.whitelist()
 def scrap_asset_(asset_name):
     asset = frappe.get_doc("Asset", asset_name)
-    print("PATCHED CORRECT BIGMAN")
+    
     if asset.docstatus != 1:
         frappe.throw(_("Asset {0} must be submitted").format(asset.name))
     elif asset.status in ("Cancelled", "Sold", "Scrapped"):
@@ -52,3 +49,5 @@ def scrap_asset_(asset_name):
     asset.set_status("Scrapped")
 
     frappe.msgprint(_("Asset scrapped via Journal Entry {0}").format(je.name))
+
+
