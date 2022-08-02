@@ -1,7 +1,24 @@
 import frappe
 from erpnext.assets.doctype.asset.depreciation import get_gl_entries_on_asset_disposal
-from frappe.utils import today
+import datetime
+from frappe.utils import today,get_datetime
 from frappe import _
+import calendar
+from addon_customization.addon_customization.doctype.biometric_device.biometric_device import fetch_attendance
+
+
+
+def import_attendance():
+    all_biometric = frappe.get_all("Biometric Device",{'disable':0})
+    if all_biometric:
+        yesterday = get_datetime(today()) - datetime.timedelta(days=1)
+        yesterday_str = datetime.datetime.strftime(yesterday,"%Y-%m-%d")
+        day_name = calendar.day_name[yesterday.weekday()].lower()
+        for each in all_biometric:
+            bio_doc = frappe.get_doc("Biometric Device",each.name)
+            fetch_attendance(yesterday_str,yesterday_str,bio_doc)
+
+
 
 def set_values_for_assets(remark,branch):
     #Set values for existing assets, To be run once

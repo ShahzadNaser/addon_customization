@@ -201,7 +201,14 @@ scheduler_events = {
 	
 }
 
-# scheduler_events = {
+scheduler_events = {
+
+	"cron": {
+		"0 1 * * *": [
+			"addon_customization.sync_method.misc_methods",
+		]
+		}
+	
 # 	"all": [
 # 		"addon_customization.tasks.all"
 # 	],
@@ -217,7 +224,7 @@ scheduler_events = {
 # 	"monthly": [
 # 		"addon_customization.tasks.monthly"
 # 	]
-# }
+}
 
 # Testing
 # -------
