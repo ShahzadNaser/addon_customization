@@ -34,6 +34,8 @@ frappe.ui.form.on('Biometric Device', {
 			d.hide();
 			frappe.call({
 				method:"addon_customization.addon_customization.doctype.biometric_device.biometric_device.fetch_attendance",
+				freeze: true,
+				freeze_message:'Fetching Records',
 				args:{
 					from_date:d.get_value('from_date'),
 					to_date:d.get_value('to_date'),

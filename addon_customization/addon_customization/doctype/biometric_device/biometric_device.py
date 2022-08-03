@@ -29,7 +29,10 @@ class BiometricDevice(Document):
     def validate(self):
         if not self.token:
                 self.token = self.get_token()
-        
+    
+    def combine_all_entries(self,response):
+        pass
+
 
     def process_data(self,data):
         #sort the api response and create attendance records where necessary
@@ -99,7 +102,8 @@ def fetch_attendance(from_date,to_date,doc):
         end_time = end.strftime("%Y-%m-%d 23:59:59")
         params = {
             'start_time':start_time,
-            'end_time':end_time
+            'end_time':end_time,
+            'page_size':50000
         }
         headers = {"Content-Type": "application/json; charset=utf-8",\
             "Authorization":auth_token}
