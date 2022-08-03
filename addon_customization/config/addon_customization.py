@@ -61,6 +61,12 @@ def get_data():
 				},
 				{
 					"type": "doctype",
+					"name": "Biometric Device",
+					"description":_("Biometric Device"),
+					"onboard": 0,
+				},
+				{
+					"type": "doctype",
 					"name": "HR Configuration",
 					"description":_("HR Configuration"),
 					"onboard": 1,
