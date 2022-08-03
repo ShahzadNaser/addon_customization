@@ -205,7 +205,7 @@ scheduler_events = {
 
 	"cron": {
 		"0 1 * * *": [
-			"addon_customization.sync_method.misc_methods",
+			"addon_customization.sync_method.misc_methods.import_attendance",
 		]
 		}
 	
