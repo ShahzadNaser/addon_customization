@@ -10,6 +10,8 @@ def execute(filters=None):
 	columns = [
 		"Item Code:Data:150",
 		"Description:Data:150",
+		"Item Group:Data:150",
+		"Item Subgroup:Data:150",
 		"Qty Return:Float:100",
 		"Qty Sold:Float:100",
 		"Qty Net:Float:100",
@@ -74,6 +76,8 @@ def execute(filters=None):
 
 		sinvi.`item_code`,
 		sinvi.`item_name`,
+		i.`item_group`,
+		i.`item_subgroup`,
 		SUM(IF(sinvi.`qty`<0,sinvi.`qty`,0)) AS qty_return,
 		SUM(IF(sinvi.`qty`>0,sinvi.`qty`,0)) AS qty_sold,
 
