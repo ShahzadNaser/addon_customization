@@ -10,14 +10,11 @@ def get_data():
 					"type": "report",
 					"name": "Sundry Debtor Ledger Summary",
 					"description":_("Sundry Debtor Ledger Summary"),
+                    "doctype": "GL Entry",
+					"is_query_report": True
 					
 				},
-				{
-					"type": "report",
-					"name": "Block Production",
-					"description":_("Block Production"),
-					"onboard": 1,
-				},
+				
 				
 			]
 		},
