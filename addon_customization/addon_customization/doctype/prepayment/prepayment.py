@@ -186,6 +186,7 @@ def auto_generate_je_based_on_date() :
 			# create new JE
 			new_docu = frappe.new_doc("Journal Entry")
 			new_docu.voucher_type = docu.journal_entry_type
+			new_docu.workflow_state = 'draft'
 
 			if docu.journal_entry_type == "Journal Entry" :
 				new_docu.naming_series = "JV-.YYYY.-"
@@ -205,6 +206,98 @@ def auto_generate_je_based_on_date() :
 				new_docu.naming_series = "DEP-.YYYY.-"
 
 			new_docu.posting_date = utils.today()
+			new_docu.prepayment = i[0]
+			new_docu.user_remark = docu.description
+
+			new_docu.location = docu.location
+
+			child = new_docu.append("accounts", {})
+			child.account = docu.debit_account
+
+			get_acc = frappe.get_doc("Account", docu.debit_account)
+			if get_acc.account_type == "Receivable" or get_acc.account_type == "Payable" :
+				child.party_type = docu.debit_party_type
+				child.party = docu.debit_party
+
+
+			child.debit_in_account_currency = docu.amount_per_month
+			child.debit = docu.amount_per_month
+
+			child = new_docu.append("accounts", {})
+			child.account = docu.credit_account
+
+			get_acc = frappe.get_doc("Account", docu.credit_account)
+			if get_acc.account_type == "Receivable" or get_acc.account_type == "Payable" :
+				child.party_type = docu.credit_party_type
+				child.party = docu.credit_party
+
+			child.credit_in_account_currency = docu.amount_per_month
+			child.credit = docu.amount_per_month
+
+			new_docu.flags.ignore_permission = True
+
+			if docu.save_as == "Draft" :
+				new_docu.save()
+			elif docu.save_as == "Submit" :
+				new_docu.save()
+				new_docu.submit()
+@frappe.whitelist()
+def auto_generate_je() :
+
+	# 'Journal Entry':'JV-.YYYY.-',
+ #    'Opening Entry':'OPJ-.YYYY.-',
+ #    'Contra Entry':'CEV-.YYYY.-',
+ #    'Credit Note':'CNV-.YYYY.-',
+ #    'Debit Note':'DNV-.YYYY.-',
+ #    'Cash Entry':'CPV-.YYYY.-',
+ #    'Bank Entry':'BPV-.YYYY.-',
+ #    'Depreciation Entry':'DEP-.YYYY.-'
+
+	get_data = frappe.db.sql("""
+
+		SELECT
+
+		pc.`parent`,
+		pc.`date_prepayment`
+
+		FROM `tabPrepayment Child` pc
+		WHERE pc.`disable` = 0
+		AND pc.`closed` = 0
+		AND pc.`docstatus` = 1
+		AND pc.`date_prepayment` = "{}"
+
+		ORDER BY pc.`parent`
+
+	""".format('2022-10-31'))
+
+	if get_data :
+		for i in get_data :
+
+			docu = frappe.get_doc("Prepayment", i[0])
+
+			# create new JE
+			new_docu = frappe.new_doc("Journal Entry")
+			new_docu.voucher_type = docu.journal_entry_type
+			new_docu.workflow_state = 'draft'
+
+			if docu.journal_entry_type == "Journal Entry" :
+				new_docu.naming_series = "JV-.YYYY.-"
+			elif docu.journal_entry_type == "Opening Entry" :
+				new_docu.naming_series = "OPJ-.YYYY.-"
+			elif docu.journal_entry_type == "Contra Entry" :
+				new_docu.naming_series = "CEV-.YYYY.-"
+			elif docu.journal_entry_type == "Credit Note" :
+				new_docu.naming_series = "CNV-.YYYY.-"
+			elif docu.journal_entry_type == "Debit Note" :
+				new_docu.naming_series = "DNV-.YYYY.-"
+			elif docu.journal_entry_type == "Cash Entry" :
+				new_docu.naming_series = "CPV-.YYYY.-"
+			elif docu.journal_entry_type == "Bank Entry" :
+				new_docu.naming_series = "BPV-.YYYY.-"
+			elif docu.journal_entry_type == "Depreciation Entry" :
+				new_docu.naming_series = "DEP-.YYYY.-"
+
+			new_docu.posting_date = '2022-10-31'
 			new_docu.prepayment = i[0]
 			new_docu.user_remark = docu.description
 
