@@ -103,7 +103,7 @@ def auto_generate_je_based_on_date() :
 
 
 @frappe.whitelist()
-def manual_generate_je_based_on_date() :
+def manual_generate_je_based_on_date(date_) :
 	get_data = frappe.db.sql("""
 
 		SELECT ps.`name` FROM `tabProvision Setup` ps
@@ -111,7 +111,7 @@ def manual_generate_je_based_on_date() :
 
 	""".format(utils.today()))
 
-	today_date = str("2020-08-01")
+	today_date = str(date_)
 	yesterday_date = str(frappe.utils.add_days(today_date, -1))
 
 	clause_date = str(yesterday_date.split("-")[0])+"-"+str(yesterday_date.split("-")[1])+"%"
