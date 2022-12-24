@@ -21,8 +21,6 @@ from erpnext.accounts.doctype.journal_entry.journal_entry import get_default_ban
 from erpnext.accounts.doctype.bank_account.bank_account import get_party_bank_account, get_bank_account_details
 
 from frappe.utils import date_diff, add_days, getdate
-from erpnext.hr.doctype.employee.employee import is_holiday
-from erpnext.hr.utils import validate_dates
 from frappe.utils import formatdate, format_datetime, getdate, get_datetime, nowdate, flt, cstr, add_days, today
 
 from frappe.utils import getdate

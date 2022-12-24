@@ -8,8 +8,7 @@ from frappe.model.document import Document
 from frappe import _
 from frappe.model.document import Document
 from frappe.utils import date_diff, add_days, getdate
-from erpnext.hr.doctype.employee.employee import is_holiday
-from erpnext.hr.utils import validate_dates
+from erpnext.setup.doctype.employee.employee import is_holiday
 from frappe.utils import formatdate, format_datetime, getdate, get_datetime, nowdate, flt, cstr, add_days, today
 
 from frappe.utils import getdate
