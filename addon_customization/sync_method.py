@@ -6,6 +6,7 @@
 from __future__ import unicode_literals
 import frappe
 import erpnext
+from frappe import _
 from frappe.model.document import Document
 import json
 import os
@@ -34,7 +35,7 @@ from frappe.utils import getdate
 
 
 
-
+from erpnext.accounts.general_ledger import make_reverse_gl_entries
 
 
 def get_gl():
@@ -1274,7 +1275,7 @@ def repair_gl_entry_pinv():
 
 
 def make_gl_entries_pinv(gl_map, cancel=False, adv_adj=False, merge_entries=True, update_outstanding='Yes', from_repost=False):
-    from erpnext.accounts.general_ledger import delete_gl_entries
+    
 
     if gl_map:
         if not cancel:
@@ -1297,7 +1298,7 @@ def make_gl_entries_pinv(gl_map, cancel=False, adv_adj=False, merge_entries=True
             else:
                 frappe.throw(_("Incorrect number of General Ledger Entries found. You might have selected a wrong Account in the transaction."))
         else:
-            delete_gl_entries(gl_map, adv_adj=adv_adj, update_outstanding=update_outstanding)
+            make_reverse_gl_entries(gl_map, adv_adj=adv_adj, update_outstanding=update_outstanding)
 
 
 
@@ -1334,7 +1335,7 @@ def create_pinv_gle_repair(doc):
             # 		warehouses, items, company = doc.company)
 
         elif doc.docstatus == 2 and cint(doc.update_stock) and doc.auto_accounting_for_stock:
-            delete_gl_entries(voucher_type=doc.doctype, voucher_no=doc.name)
+            _delete_gl_entries(voucher_type=doc.doctype, voucher_no=doc.name)
 
 
 
@@ -1851,7 +1852,7 @@ def create_dn_gle_repair(doc):
     get_setting = frappe.get_single("General Setting")
     if get_setting.replace_gle_delivery_note == "Yes" :
 
-        from erpnext.accounts.general_ledger import delete_gl_entries
+        
         
 
         gl_entries = []
@@ -1859,7 +1860,7 @@ def create_dn_gle_repair(doc):
         from_repost=False
 
         if doc.docstatus == 2:
-            delete_gl_entries(voucher_type=doc.doctype, voucher_no=doc.name)
+            _delete_gl_entries(voucher_type=doc.doctype, voucher_no=doc.name)
 
     
         if doc.docstatus==1:
@@ -1904,8 +1905,8 @@ def create_sinv_gle_repair(doc):
             # 		items, warehouses = doc.get_items_and_warehouses()
             # 		update_gl_entries_after(doc.posting_date, doc.posting_time, warehouses, items, company = doc.company)
         elif doc.docstatus == 2 and cint(doc.update_stock) and cint(auto_accounting_for_stock):
-            from erpnext.accounts.general_ledger import delete_gl_entries
-            delete_gl_entries(voucher_type=doc.doctype, voucher_no=doc.name)
+            
+            _delete_gl_entries(voucher_type=doc.doctype, voucher_no=doc.name)
 
 
 
@@ -2145,7 +2146,7 @@ def make_stock_adjustment_entry(doc, gl_entries, item, voucher_wise_stock_value,
 # 	get_setting = frappe.get_single("General Setting")
 # 	if get_setting.replace_gle_purchase_receipt == "Yes" :
 
-# 		from erpnext.accounts.general_ledger import make_gl_entries, delete_gl_entries
+# 		from erpnext.accounts.general_ledger import make_gl_entries, _delete_gl_entries
 
 
 # 		if doc.docstatus == 2:
@@ -2704,7 +2705,7 @@ def update_gl_entries_after(posting_date, posting_time, for_warehouses=None, for
 
 
 def make_gl_entries_sinv(gl_map, cancel=False, adv_adj=False, merge_entries=True, update_outstanding='Yes', from_repost=False):
-    from erpnext.accounts.general_ledger import delete_gl_entries
+    
 
     skip = 0
     if gl_map:
@@ -2747,7 +2748,7 @@ def make_gl_entries_sinv(gl_map, cancel=False, adv_adj=False, merge_entries=True
             else:
                 frappe.throw(_("Incorrect number of General Ledger Entries found. You might have selected a wrong Account in the transaction."))
         else:
-            delete_gl_entries(gl_map, adv_adj=adv_adj, update_outstanding=update_outstanding)
+            make_reverse_gl_entries(gl_map, adv_adj=adv_adj, update_outstanding=update_outstanding)
 
 
 def process_gl_map(gl_map, merge_entries=True):
@@ -3091,7 +3092,7 @@ def create_pinv_gle_manual(doc, method):
             # 		warehouses, items, company = doc.company)
 
         elif doc.docstatus == 2 and cint(doc.update_stock) and doc.auto_accounting_for_stock:
-            delete_gl_entries(voucher_type=doc.doctype, voucher_no=doc.name)
+            _delete_gl_entries(voucher_type=doc.doctype, voucher_no=doc.name)
 
 
     
@@ -3124,8 +3125,8 @@ def create_sinv_gle_manual(doc, method):
             # 		items, warehouses = doc.get_items_and_warehouses()
             # 		update_gl_entries_after(doc.posting_date, doc.posting_time, warehouses, items, company = doc.company)
         elif doc.docstatus == 2 and cint(doc.update_stock) and cint(auto_accounting_for_stock):
-            from erpnext.accounts.general_ledger import delete_gl_entries
-            delete_gl_entries(voucher_type=doc.doctype, voucher_no=doc.name)
+            
+            _delete_gl_entries(voucher_type=doc.doctype, voucher_no=doc.name)
 
 
 
@@ -3138,7 +3139,7 @@ def create_sinv_gle_manual(doc, method):
             # 			make_entry(entry)
 
 def make_gl_entries_dn(gl_map, merge_entries=True, cancel=False):
-    from erpnext.accounts.general_ledger import delete_gl_entries
+    
 
     if gl_map:
         if not cancel:
@@ -3161,14 +3162,14 @@ def make_gl_entries_dn(gl_map, merge_entries=True, cancel=False):
             else:
                 frappe.throw(_("Incorrect number of General Ledger Entries found. You might have selected a wrong Account in the transaction."))
         else:
-            delete_gl_entries(gl_map, adv_adj=adv_adj, update_outstanding=update_outstanding)
+            make_reverse_gl_entries(gl_map, adv_adj=adv_adj, update_outstanding=update_outstanding)
 
 @frappe.whitelist()
 def create_dn_gle_manual(doc, method):
     get_setting = frappe.get_single("General Setting")
     if get_setting.replace_gle_delivery_note == "Yes" :
 
-        from erpnext.accounts.general_ledger import delete_gl_entries
+        
         
 
         gl_entries = []
@@ -3176,7 +3177,7 @@ def create_dn_gle_manual(doc, method):
         from_repost=False
 
         if doc.docstatus == 2:
-            delete_gl_entries(voucher_type=doc.doctype, voucher_no=doc.name)
+            _delete_gl_entries(voucher_type=doc.doctype, voucher_no=doc.name)
 
     
         if doc.docstatus==1:
@@ -3588,7 +3589,7 @@ def get_gl_entries_sr(doc):
 
 
 def make_gl_entries_sr(gl_map, cancel=False):
-    from erpnext.accounts.general_ledger import delete_gl_entries
+    
 
     if gl_map:
         if not cancel:
@@ -3631,13 +3632,13 @@ def update_gl_entries_after_sr(posting_date, posting_time, for_warehouses=None, 
 
 
         elif voucher_type == "Delivery Note" :
-            from erpnext.accounts.general_ledger import delete_gl_entries
+            
             _delete_gl_entries(voucher_type, voucher_no)
             gl_entries = []
             repost_future_gle=True
             from_repost=False
             if doc.docstatus == 2:
-                delete_gl_entries(voucher_type=doc.doctype, voucher_no=doc.name)
+                _delete_gl_entries(voucher_type=doc.doctype, voucher_no=doc.name)
             if doc.docstatus==1:
                 if not gl_entries:
                     gl_entries = get_gl_entries_dn(doc)
@@ -3674,14 +3675,14 @@ def create_sr_gle_manual(doc, method):
     get_setting = frappe.get_single("General Setting")
     if get_setting.replace_gle_stock_reconciliation == "Yes" :
 
-        from erpnext.accounts.general_ledger import delete_gl_entries
+        
 
         repost_future_gle=True, 
         from_repost=False
         gl_entries = []
 
         if doc.docstatus == 2:
-            delete_gl_entries(voucher_type=doc.doctype, voucher_no=doc.name)
+            _delete_gl_entries(voucher_type=doc.doctype, voucher_no=doc.name)
 
         if cint(erpnext.is_perpetual_inventory_enabled(doc.company)):
             # warehouse_account = get_warehouse_account_map(doc.company)
@@ -4510,4 +4511,12 @@ def patch_ste_gle_manual():
 
         print(str(i))
 
+
+
+def _delete_gl_entries(voucher_type, voucher_no):
+	frappe.db.sql(
+		"""delete from `tabGL Entry`
+		where voucher_type=%s and voucher_no=%s""",
+		(voucher_type, voucher_no),
+	)
 

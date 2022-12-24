@@ -7,7 +7,6 @@ import frappe, erpnext
 from frappe.model.document import Document
 from erpnext.accounts.utils import get_fiscal_year
 import frappe.defaults
-from erpnext.accounts.general_ledger import make_gl_entries, delete_gl_entries, process_gl_map
 
 from erpnext.stock import get_warehouse_account_map
 from frappe.utils import cstr, cint, flt, comma_or, getdate, nowdate, formatdate, format_time
@@ -379,3 +378,10 @@ class TransformationProduction(Document):
 		gle.submit()
 
 
+
+def delete_gl_entries(voucher_type, voucher_no):
+	frappe.db.sql(
+		"""delete from `tabGL Entry`
+		where voucher_type=%s and voucher_no=%s""",
+		(voucher_type, voucher_no),
+	)
