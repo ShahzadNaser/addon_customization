@@ -189,7 +189,7 @@ def auto_generate_je_based_on_date() :
 
         ORDER BY pc.`parent`
 
-    """.format(utils.today()))
+    """.format('2022-12-07'))
 
     if get_data :
         for i in get_data :
@@ -218,7 +218,7 @@ def auto_generate_je_based_on_date() :
             elif docu.journal_entry_type == "Depreciation Entry" :
                 new_docu.naming_series = "DEP-.YYYY.-"
 
-            new_docu.posting_date = utils.today()
+            new_docu.posting_date =  str('2022-12-07')
             new_docu.prepayment = i[0]
             new_docu.user_remark = docu.description
 
@@ -375,7 +375,7 @@ def manual_generate_je_based_on_date() :
 
         ORDER BY pc.`parent`
 
-    """.format(str("2020-10-30")))
+    """.format(str("2022-12-07")))
 
     if get_data :
         for i in get_data :
@@ -403,7 +403,7 @@ def manual_generate_je_based_on_date() :
             elif docu.journal_entry_type == "Depreciation Entry" :
                 new_docu.naming_series = "DEP-.YYYY.-"
 
-            new_docu.posting_date = str("2020-07-31")
+            new_docu.posting_date = str("2022-12-07")
             new_docu.prepayment = i[0]
             new_docu.user_remark = docu.description
 
